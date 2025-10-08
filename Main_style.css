@@ -1,4 +1,4 @@
- 
+
         /* Generelle stiler for siden */
         body {
             font-family: 'Open Sans', sans-serif;
@@ -298,3 +298,85 @@
                 margin-bottom: 15px;
             }
         }
+              .hover-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .hover-trigger {
+      padding: 10px 20px;
+      background-color: transparent;
+      color: white;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .hover-list {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: -100px;
+      background-color: transparent;
+      
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 400px;
+    }
+    .header_links {
+          text-decoration: none;
+        background-color: transparent;
+        color: white;
+        padding: 10px 10px;
+         transition: background-color 0.3s ease;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 18px;
+        border: none;
+    }
+
+    .header_links button {
+        text-decoration: none;
+        cursor: pointer;
+        background-color:  transparent;
+        color: white;
+        padding: 10px 10px;
+         transition: background-color 0.3s ease;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 18px;
+        border: none;
+    }
+
+    .hover-list button {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .hover-list button:hover {
+      background-color: #f0f0f0;
+      color: rgba(51, 77, 92, 0.9);
+    }
+    .header_links button:hover {
+        background-color: #f0f0f0;
+      color: rgba(51, 77, 92, 0.9)
+    }
+    .hover-container:hover{
+         background-color: #f0f0f0;
+      color: rgba(51, 77, 92, 0.9);
+      border-radius: 4px;
+
+
+    }
+    .hover-trigger:hover{
+        color: rgba(51, 77, 92, 0.9);
+    }
+    .hover-container:hover .hover-trigger{
+        color: rgba(51, 77, 92, 0.9);
+    }
+
+    .hover-container:hover .hover-list {
+      display: block;
+
+    }
