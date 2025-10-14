@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Generelle stiler for siden - Hentet fra bergenregn.html */
         body {
             font-family: 'Open Sans', sans-serif;
             margin: 0;
@@ -20,7 +19,6 @@
             overflow-x: hidden;
         }
 
-        /* Bakgrunnseffekt for regn */
         .rain {
             position: fixed;
             top: 0;
@@ -38,7 +36,6 @@
             animation: fall linear infinite;
         }
 
-        /* CSS-animasjon for regndråpene */
         @keyframes fall {
             0% {
                 transform: translateY(-100vh);
@@ -48,7 +45,6 @@
             }
         }
 
-        /* Innholdet på siden */
         .container {
             width: 90%;
             max-width: 1200px;
@@ -58,7 +54,6 @@
             z-index: 1;
         }
 
-        /* Header stiler */
         .header {
             background-color: rgba(51, 77, 92, 0.9);
             color: #fff;
@@ -84,56 +79,47 @@
             color: #87ceeb;
         }
 
-        /* NAVIGASJON STILER - Standardisert mot bergenregn.html for lenker */
         .main-nav ul {
             list-style: none;
             margin: 0;
             padding: 0;
-            display: flex;
-        }
-
-        .main-nav ul li {
-            margin-left: 25px;
-        }
-
-        .main-nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-            padding: 5px; /* for klikkområde */
-        }
-
-        .main-nav ul li a:hover {
-            color: #87ceeb;
         }
         
-        /* Spesifikke stiler for nav-menyen fra bergenregn-index.html */
-        /* Dette er lagt til for å støtte hover-menyen da Main_style.css mangler */
         .header_links {
             display: flex;
             align-items: center;
+            height: 100%;
         }
-        
+
+        .header_links a {
+            text-decoration: none;
+            color: inherit;
+            display: inline-block;
+        }
+
         .header_links button {
             background: none;
             border: none;
-            color: white;
-            font-weight: 600;
-            font-family: inherit;
+            color: #fff;
+            font-family: 'Open Sans', sans-serif;
             font-size: 1em;
+            font-weight: 600;
             padding: 10px 15px;
             cursor: pointer;
             transition: color 0.3s ease;
+            white-space: nowrap;
         }
 
         .header_links button:hover {
             color: #87ceeb;
         }
 
+        /* Korrigert CSS for vertikal dropdown */
         .hover-container {
             position: relative;
-            display: inline-block;
+            display: inline-block; /* Behold inline-block for å plassere i menylinjen */
+            height: 100%;
+            /* Fjernet display: flex her for å unngå horisontal forskyvning */
         }
 
         .hover-trigger {
@@ -142,6 +128,12 @@
             padding: 10px 15px;
             cursor: pointer;
             transition: color 0.3s ease;
+            white-space: nowrap;
+            background: none;
+            border: none;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1em;
+            display: block; /* Viktig: Sørger for at den oppfører seg som et blokk-element */
         }
 
         .hover-trigger:hover {
@@ -151,37 +143,50 @@
         .hover-list {
             display: none;
             position: absolute;
+            top: 100%;
+            left: 0;
+            
             background-color: rgba(51, 77, 92, 0.95);
             min-width: 160px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 10;
-            padding: 5px 0;
-            border-radius: 4px;
-            top: 100%; /* Plasserer under trigger */
-            left: 50%;
-            transform: translateX(-50%); /* Sentrerer menyen */
+            border-radius: 0 0 5px 5px;
+            overflow: hidden;
+            margin-top: 0;
+            /* Sikrer at listeelementene stablet vertikalt */
         }
 
         .hover-list button {
-            color: white !important;
-            padding: 10px 15px;
+            /* Stil for elementene i dropdown-menyen */
+            background: none;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: left; /* Dette er nøkkelen: Venstrejustering */
             text-decoration: none;
-            display: block;
-            text-align: left;
+            display: block; /* Dette er nøkkelen: Vertikal stabling */
             width: 100%;
-            box-sizing: border-box;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1em;
+            font-weight: 600;
+            box-sizing: border-box; 
+            /* Fjern eventuelle flex-innstillinger som kan ha sneket seg inn */
+            display: block;
         }
-        
+
         .hover-list button:hover {
-            background-color: #4da6e6;
-            color: white !important;
+            background-color: #334d5c;
+            color: #87ceeb;
         }
 
         .hover-container:hover .hover-list {
             display: block;
         }
-        
-        /* Hovedinnhold stiler */
+        /* Slutt på dropdown CSS */
+
+
         .main-content {
             padding-top: 30px;
             padding-bottom: 30px;
@@ -208,7 +213,6 @@
             max-width: 100%;
         }
 
-        /* Kort/Boks stiler */
         .card {
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 8px;
@@ -233,8 +237,7 @@
             font-size: 1.3em;
         }
         
-        /* Spesifikke stiler for knapper/lenker i team-boksene */
-        .read-more-link { /* Ny klasse for å erstatte inline-stil for lenkene */
+        .read-more-link { 
             background-color: #87ceeb;
             color: white;
             text-decoration: none;
@@ -248,10 +251,9 @@
         }
         
         .read-more-link:hover {
-            background-color: #4da6e6; /* Litt mørkere blå ved hover */
+            background-color: #4da6e6;
         }
         
-        /* Footer stiler */
         .footer {
             background-color: rgba(68, 68, 68, 0.9);
             color: #f0f0f0;
@@ -282,7 +284,7 @@
             line-height: 1.8;
         }
 
-        /* Responsivitet - Hentet fra bergenregn.html */
+        /* Responsivitet */
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -292,10 +294,36 @@
             .main-nav ul {
                 margin-top: 15px;
                 justify-content: center;
+                display: block;
             }
 
-            .main-nav ul li {
-                margin: 0 10px;
+            .header_links {
+                flex-direction: column;
+            }
+            
+            .header_links button,
+            .hover-trigger,
+            .hover-container {
+                display: block;
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+                box-sizing: border-box;
+            }
+
+            .hover-list {
+                position: static;
+                width: 100%;
+                min-width: 100%; 
+                margin-top: 0;
+                box-shadow: none;
+                border-radius: 0;
+                display: block; 
+            }
+            
+            .hover-list button {
+                text-align: left;
+                padding: 10px 20px;
             }
 
             .col-6 {
@@ -322,10 +350,6 @@
                 font-size: 1.3em;
             }
 
-            .main-nav ul li {
-                margin: 0 5px;
-            }
-
             .card h2 {
                 font-size: 1.5em;
             }
@@ -344,18 +368,17 @@
             <nav class="main-nav">
                 <ul>
                     <div class="header_links">
-                        <a href="bergenregn.html">
-                            <button>Hjem</button>
-                        </a>
-                        <div class="hover-container">
-                            <div class="hover-trigger">Prosjekter</div>
-                            <div class="hover-list">
-                                <button onclick="location.href='BRH-3.html'">Vedlikehold</button>
-                                <button onclick="location.href='BRH-5.html'">Aktiviteter</button>
-                                <button onclick="location.href='BRH-6.html'">Statestikk</button>
-                            </div>
+                    <a href="bergenregn-index.html">
+                    <button>Hjem</button></a>
+                    <div class="hover-container">
+                        <div class="hover-trigger">Prosjekter</div>
+                        <div class="hover-list">
+                            <button onclick="location.href='BRH-3.html'">Vedlikehold</button>
+                            <button onclick="location.href='BRH-5.html'">Aktiviteter</button>
+                            <button onclick="location.href='BRH-6.html'">Statestikk</button>
                         </div>
-                        <a href="OMOSS.html"><button>Om oss</button></a>
+                    </div>
+                    <a href="OMOSS.html"><button>Om oss</button></a>
                     </div>
                 </ul>
             </nav>
@@ -376,7 +399,7 @@
             <div class="col-6">
                 <div class="card">
                     <article>
-                        <h3>Emil Bakken</h3>
+                        <h3>Emil</h3>
                         <p><strong>Ansvar:</strong> Kundeservice i Regnbyen A/S</p>
                         <p>21 år gammel student ved HVL fra Stavanger. Emil elsker trening og isbading.</p>
                         <a href="Om meg - Emil Bakken.html" class="read-more-link">Les mer om Emil</a>
@@ -424,7 +447,7 @@
                     <article>
                         <h3>Gard</h3>
                         <p><strong>Ansvar:</strong> Hus spesialist i Regnbyen A/S</p>
-                        <p>21 år fra Asker. Elsker å jobbe med hus og hjelpe mennesker</p>
+                        <p>21 år fra Som. Elsker å jobbe med hus og hjelpe mennesker.</p>
                         <a href="om-meg-Gard.html" class="read-more-link">Les mer om Gard</a>
                     </article>
                 </div>
@@ -459,7 +482,6 @@ Inndalsveien 28<br>
     </footer>
 
     <script>
-        // JavaScript for regndråpe-effekten
         const rainContainer = document.querySelector('.rain');
 
         function createRaindrop() {
@@ -480,4 +502,5 @@ Inndalsveien 28<br>
     </script>
 
 </body>
+
 </html>
