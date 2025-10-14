@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Generelle stiler for siden - Hentet fra bergenregn.html */
         body {
             font-family: 'Open Sans', sans-serif;
             margin: 0;
@@ -20,7 +19,6 @@
             overflow-x: hidden;
         }
 
-        /* Bakgrunnseffekt for regn */
         .rain {
             position: fixed;
             top: 0;
@@ -38,7 +36,6 @@
             animation: fall linear infinite;
         }
 
-        /* CSS-animasjon for regndråpene */
         @keyframes fall {
             0% {
                 transform: translateY(-100vh);
@@ -48,7 +45,6 @@
             }
         }
 
-        /* Innholdet på siden */
         .container {
             width: 90%;
             max-width: 1200px;
@@ -58,7 +54,6 @@
             z-index: 1;
         }
 
-        /* Header stiler */
         .header {
             background-color: rgba(51, 77, 92, 0.9);
             color: #fff;
@@ -84,7 +79,6 @@
             color: #87ceeb;
         }
 
-        /* START: OPPDATERT NAVIGASJON STILER (Likt bergenregn-index.html) */
         .main-nav ul {
             list-style: none;
             margin: 0;
@@ -113,14 +107,14 @@
             padding: 10px 15px;
             cursor: pointer;
             transition: color 0.3s ease;
-            white-space: nowrap; /* Hindrer linjeskift */
+            white-space: nowrap;
         }
 
         .header_links button:hover {
             color: #87ceeb;
         }
 
-        /* Hover-meny for Prosjekter */
+        /* OPPDATERTE STILER FOR DROPDOWN-MENYEN */
         .hover-container {
             position: relative;
             display: inline-block;
@@ -136,6 +130,11 @@
             cursor: pointer;
             transition: color 0.3s ease;
             white-space: nowrap;
+            /* Sikrer at triggeren har samme hover-stil som de andre lenkene */
+            background: none;
+            border: none;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1em;
         }
 
         .hover-trigger:hover {
@@ -145,45 +144,45 @@
         .hover-list {
             display: none;
             position: absolute;
-            background-color: rgba(51, 77, 92, 0.95);
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 10;
-            top: 100%;
+            top: 100%; 
             left: 0;
-            border-radius: 5px;
+            background-color: rgba(51, 77, 92, 0.9); 
+            min-width: 150px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+            border-radius: 0 0 5px 5px; /* Litt avrunding nederst */
             overflow: hidden;
-            margin-top: 5px; /* Litt avstand fra Prosjekter */
+            margin-top: 0; /* Fjerner marginen som var der */
         }
 
         .hover-list button {
+            background: none;
+            border: none;
             color: #fff;
-            padding: 12px 16px;
+            padding: 10px 20px;
+            text-align: left;
             text-decoration: none;
             display: block;
             width: 100%;
-            text-align: left;
-            background: none;
-            border: none;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1em;
             cursor: pointer;
             transition: background-color 0.3s ease, color 0.3s ease;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1em;
+            font-weight: 600;
+            white-space: nowrap;
         }
 
         .hover-list button:hover {
-            background-color: #555;
+            background-color: #334d5c;
             color: #87ceeb;
         }
 
         .hover-container:hover .hover-list {
             display: block;
         }
+        /* SLUTT: OPPDATERTE STILER FOR DROPDOWN-MENYEN */
 
-        /* SLUTT: OPPDATERT NAVIGASJON STILER */
 
-
-        /* Hovedinnhold stiler */
         .main-content {
             padding-top: 30px;
             padding-bottom: 30px;
@@ -210,7 +209,6 @@
             max-width: 100%;
         }
 
-        /* Kort/Boks stiler */
         .card {
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 8px;
@@ -235,7 +233,6 @@
             font-size: 1.3em;
         }
         
-        /* Spesifikke stiler for knapper/lenker i team-boksene */
         .read-more-link { 
             background-color: #87ceeb;
             color: white;
@@ -250,10 +247,9 @@
         }
         
         .read-more-link:hover {
-            background-color: #4da6e6; /* Litt mørkere blå ved hover */
+            background-color: #4da6e6;
         }
         
-        /* Footer stiler */
         .footer {
             background-color: rgba(68, 68, 68, 0.9);
             color: #f0f0f0;
@@ -284,7 +280,7 @@
             line-height: 1.8;
         }
 
-        /* Responsivitet - OPPDATERT FOR DEN NYE NAVIGASJONEN */
+        /* Responsivitet */
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -294,7 +290,7 @@
             .main-nav ul {
                 margin-top: 15px;
                 justify-content: center;
-                display: block; /* Lar lenkene stables for mobil */
+                display: block;
             }
 
             .header_links {
@@ -304,7 +300,7 @@
             .header_links button,
             .hover-trigger,
             .hover-container {
-                display: block; /* Får hvert menyelement til å ta full bredde på mobil */
+                display: block;
                 width: 100%;
                 text-align: center;
                 padding: 10px 0;
@@ -312,7 +308,7 @@
             }
 
             .hover-list {
-                position: static; /* Viser dropdown under på mobil */
+                position: static;
                 width: 100%;
                 margin-top: 0;
                 box-shadow: none;
