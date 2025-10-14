@@ -114,7 +114,7 @@
             color: #87ceeb;
         }
 
-        /* OPPDATERTE STILER FOR DROPDOWN-MENYEN */
+        /* KORRIGERT CSS FOR VERTICAL DROPDOWN */
         .hover-container {
             position: relative;
             display: inline-block;
@@ -130,11 +130,12 @@
             cursor: pointer;
             transition: color 0.3s ease;
             white-space: nowrap;
-            /* Sikrer at triggeren har samme hover-stil som de andre lenkene */
+            /* Sikrer at triggeren ser ut som en menyknapp */
             background: none;
             border: none;
             font-family: 'Open Sans', sans-serif;
             font-size: 1em;
+            display: block; /* Viktig for å fylle hele hover-området */
         }
 
         .hover-trigger:hover {
@@ -144,43 +145,43 @@
         .hover-list {
             display: none;
             position: absolute;
-            top: 100%; 
+            top: 100%; /* Plasserer den rett under "Prosjekter" */
             left: 0;
-            background-color: rgba(51, 77, 92, 0.9); 
-            min-width: 150px; 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            background-color: rgba(51, 77, 92, 0.95);
+            min-width: 160px; /* Gir bredde til dropdown */
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 10;
-            border-radius: 0 0 5px 5px; /* Litt avrunding nederst */
+            border-radius: 0 0 5px 5px;
             overflow: hidden;
-            margin-top: 0; /* Fjerner marginen som var der */
+            margin-top: 0;
         }
 
         .hover-list button {
+            /* Stil for elementene i dropdown-menyen */
             background: none;
             border: none;
             color: #fff;
             padding: 10px 20px;
-            text-align: left;
+            text-align: left; /* Gjør teksten venstrejustert for et listepreg */
             text-decoration: none;
-            display: block;
-            width: 100%;
+            display: block; /* Viser elementene som en vertikal liste */
+            width: 100%; /* Fyller bredden av hover-list */
             cursor: pointer;
             transition: background-color 0.3s ease, color 0.3s ease;
             font-family: 'Open Sans', sans-serif;
             font-size: 1em;
             font-weight: 600;
-            white-space: nowrap;
         }
 
         .hover-list button:hover {
-            background-color: #334d5c;
+            background-color: #334d5c; /* Mørkere bakgrunn ved hover */
             color: #87ceeb;
         }
 
         .hover-container:hover .hover-list {
-            display: block;
+            display: block; /* Viser listen ved hover */
         }
-        /* SLUTT: OPPDATERTE STILER FOR DROPDOWN-MENYEN */
+        /* SLUTT: KORRIGERT CSS */
 
 
         .main-content {
