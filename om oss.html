@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Generelle stiler for siden - Hentet fra bergenregn.html */
         body {
             font-family: 'Open Sans', sans-serif;
             margin: 0;
@@ -20,7 +19,6 @@
             overflow-x: hidden;
         }
 
-        /* Bakgrunnseffekt for regn */
         .rain {
             position: fixed;
             top: 0;
@@ -38,7 +36,6 @@
             animation: fall linear infinite;
         }
 
-        /* CSS-animasjon for regndråpene */
         @keyframes fall {
             0% {
                 transform: translateY(-100vh);
@@ -48,7 +45,6 @@
             }
         }
 
-        /* Innholdet på siden */
         .container {
             width: 90%;
             max-width: 1200px;
@@ -58,7 +54,6 @@
             z-index: 1;
         }
 
-        /* Header stiler */
         .header {
             background-color: rgba(51, 77, 92, 0.9);
             color: #fff;
@@ -84,7 +79,6 @@
             color: #87ceeb;
         }
 
-        /* NAVIGASJON STILER - Standardisert mot bergenregn.html for lenker */
         .main-nav ul {
             list-style: none;
             margin: 0;
@@ -101,14 +95,13 @@
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s ease;
-            padding: 5px; /* for klikkområde */
+            padding: 5px;
         }
 
         .main-nav ul li a:hover {
             color: #87ceeb;
         }
 
-        /* Hovedinnhold stiler */
         .main-content {
             padding-top: 30px;
             padding-bottom: 30px;
@@ -135,7 +128,6 @@
             max-width: 100%;
         }
 
-        /* Kort/Boks stiler */
         .card {
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 8px;
@@ -160,8 +152,7 @@
             font-size: 1.3em;
         }
         
-        /* Spesifikke stiler for knapper/lenker i team-boksene */
-        .read-more-link { /* Ny klasse for å erstatte inline-stil for lenkene */
+        .read-more-link {
             background-color: #87ceeb;
             color: white;
             text-decoration: none;
@@ -175,10 +166,9 @@
         }
         
         .read-more-link:hover {
-            background-color: #4da6e6; /* Litt mørkere blå ved hover */
+            background-color: #4da6e6;
         }
         
-        /* Footer stiler */
         .footer {
             background-color: rgba(68, 68, 68, 0.9);
             color: #f0f0f0;
@@ -209,7 +199,6 @@
             line-height: 1.8;
         }
 
-        /* Responsivitet - Hentet fra bergenregn.html */
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -270,9 +259,19 @@
             </div>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="bergenregn-index.html">Hjem</a></li>
-                    <li><a href="#">Prosjekter</a></li> 
-                    <li><a href="OMOSS.html">Om oss</a></li>
+                    <div class="header_links">
+                    <a href="bergenregn-index.html">
+                    <button>Hjem</button></a>
+                    <div class="hover-container">
+                        <div class="hover-trigger">Prosjekter</div>
+                        <div class="hover-list">
+                            <button onclick="location.href='BRH-3.html'">Vedlikehold</button>
+                            <button onclick="location.href='BRH-5.html'">Aktiviteter</button>
+                            <button onclick="location.href='BRH-6.html'">Statestikk</button>
+                        </div>
+                    </div>
+                    <a href="OMOSS.html"><button>Om oss</button></a>
+                    </div>
                 </ul>
             </nav>
         </div>
@@ -375,7 +374,6 @@ Inndalsveien 28<br>
     </footer>
 
     <script>
-        // JavaScript for regndråpe-effekten
         const rainContainer = document.querySelector('.rain');
 
         function createRaindrop() {
