@@ -114,12 +114,14 @@
             color: #87ceeb;
         }
 
-        /* Korrigert CSS for vertikal dropdown */
+        /* ************************************************* */
+        /* KORRIGERT CSS FOR VERTICAL DROPDOWN (Løsning 3) */
+        /* ************************************************* */
         .hover-container {
             position: relative;
-            display: inline-block; /* Behold inline-block for å plassere i menylinjen */
+            display: inline-block;
             height: 100%;
-            /* Fjernet display: flex her for å unngå horisontal forskyvning */
+            /* Fjernet unødvendige flex-justeringer her */
         }
 
         .hover-trigger {
@@ -133,7 +135,7 @@
             border: none;
             font-family: 'Open Sans', sans-serif;
             font-size: 1em;
-            display: block; /* Viktig: Sørger for at den oppfører seg som et blokk-element */
+            display: block; 
         }
 
         .hover-trigger:hover {
@@ -153,27 +155,28 @@
             border-radius: 0 0 5px 5px;
             overflow: hidden;
             margin-top: 0;
-            /* Sikrer at listeelementene stablet vertikalt */
         }
 
         .hover-list button {
-            /* Stil for elementene i dropdown-menyen */
+            /* STABLE NØKKEL-EGENSKAPER */
             background: none;
             border: none;
             color: #fff;
             padding: 10px 20px;
-            text-align: left; /* Dette er nøkkelen: Venstrejustering */
+            text-align: left; /* Tvinger teksten til venstre */
             text-decoration: none;
-            display: block; /* Dette er nøkkelen: Vertikal stabling */
-            width: 100%;
+            display: block; /* Tvinger elementene til å stable vertikalt */
+            width: 100%; /* Fyller bredden av hover-list */
+            
+            /* NØKKEL-FIX: Float venstre for å unngå Flex-påvirkning fra foreldre */
+            float: left; 
+            
             cursor: pointer;
             transition: background-color 0.3s ease, color 0.3s ease;
             font-family: 'Open Sans', sans-serif;
             font-size: 1em;
             font-weight: 600;
             box-sizing: border-box; 
-            /* Fjern eventuelle flex-innstillinger som kan ha sneket seg inn */
-            display: block;
         }
 
         .hover-list button:hover {
@@ -185,6 +188,7 @@
             display: block;
         }
         /* Slutt på dropdown CSS */
+        /* ************************************************* */
 
 
         .main-content {
@@ -324,6 +328,7 @@
             .hover-list button {
                 text-align: left;
                 padding: 10px 20px;
+                float: none; /* Fjern float i mobilvisning */
             }
 
             .col-6 {
