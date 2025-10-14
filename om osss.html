@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Om oss - Regnbyen Bergen A/S</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Generelle stiler for siden - Hentet fra bergenregn.html */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Bakgrunnseffekt for regn */
+        .rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .rain span {
+            position: absolute;
+            background: #a0d4ef;
+            opacity: 0.6;
+            animation: fall linear infinite;
+        }
+
+        /* CSS-animasjon for regndråpene */
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
+        /* Innholdet på siden */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header stiler */
+        .header {
+            background-color: rgba(51, 77, 92, 0.9);
+            color: #fff;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: #87ceeb;
+        }
+
+        /* NAVIGASJON STILER - Standardisert mot bergenregn.html for lenker */
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .main-nav ul li {
+            margin-left: 25px;
+        }
+
+        .main-nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            padding: 5px; /* for klikkområde */
+        }
+
+        .main-nav ul li a:hover {
+            color: #87ceeb;
+        }
+
+        /* Hovedinnhold stiler */
+        .main-content {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .col-6, .col-12 {
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .col-6 {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
+        .col-12 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        /* Kort/Boks stiler */
+        .card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card h2 {
+            color: #334d5c;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .card h3 {
+            color: #334d5c;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        /* Spesifikke stiler for knapper/lenker i team-boksene */
+        .read-more-link { /* Ny klasse for å erstatte inline-stil for lenkene */
+            background-color: #87ceeb;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 15px;
+            display: inline-block;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        
+        .read-more-link:hover {
+            background-color: #4da6e6; /* Litt mørkere blå ved hover */
+        }
+        
+        /* Footer stiler */
+        .footer {
+            background-color: rgba(68, 68, 68, 0.9);
+            color: #f0f0f0;
+            padding: 30px 0;
+            margin-top: 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-col h3 {
+            color: #87ceeb;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .footer-col p {
+            font-size: 0.9em;
+            line-height: 1.8;
+        }
+
+        /* Responsivitet - Hentet fra bergenregn.html */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .main-nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+
+            .main-nav ul li {
+                margin: 0 10px;
+            }
+
+            .col-6 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+
+            .row {
+                margin-bottom: 10px;
+            }
+
+            .card {
+                margin-bottom: 20px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.3em;
+            }
+
+            .main-nav ul li {
+                margin: 0 5px;
+            }
+
+            .card h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="rain"></div>
+
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-cloud-rain"></i> Regnbyen Bergen A/S
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="bergenregn.html">Hjem</a></li>
+                    <li><a href="#">Prosjekter</a></li> 
+                    <li><a href="OMOSS.html">Om oss</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <h2>Møt Teamet Vårt</h2>
+                    <p>Regnbyen Bergen A/S er drevet av et dedikert team av entusiaster fra Bergen. Klikk på et navn for å lære mer om hvert teammedlem.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="card">
+                    <article>
+                        <h3>Emil Bakken</h3>
+                        <p><strong>Ansvar:</strong> Kundeservice i Regnbyen A/S</p>
+                        <p>21 år gammel student ved HVL fra Stavanger. Emil elsker trening og isbading.</p>
+                        <a href="Om meg - Emil Bakken.html" class="read-more-link">Les mer om Emil</a>
+                    </article>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card">
+                    <article>
+                        <h3>Jonas</h3>
+                        <p><strong>Ansvar:</strong> Vaktmester i Regnbyen A/S</p>
+                        <p>21 år gammel prosjektmedlem som brenner for å dele Bergens beste turer.</p>
+                        <a href="om meg jonas.html" class="read-more-link">Les mer om Jonas</a>
+                    </article>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="card">
+                    <article>
+                        <h3>Espen</h3>
+                        <p><strong>Ansvar:</strong> Sjef i Regnbyen A/S</p>
+                        <p>28 år fra Askøy.Liker å game og elsker å jobbe med mennesker.</p>
+                        <a href="om-meg-Espen.html" class="read-more-link">Les mer om Espen</a>
+                    </article>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card">
+                    <article>
+                        <h3>Øivind</h3>
+                        <p><strong>Ansvar:</strong> Klesansvarlig i Regnbyen A/S</p>
+                        <p>26 år fra Bergen. Elsker mote og Bergen.</p>
+                        <a href="om-meg-Oivind.html" class="read-more-link">Les mer om Øivind</a>
+                    </article>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-6">
+                <div class="card">
+                    <article>
+                        <h3>Gard</h3>
+                        <p><strong>Ansvar:</strong> Hus spesialist i Regnbyen A/S</p>
+                        <p>21 år fra Asker. Elsker å jobbe med hus og hjelpe mennesker.</p>
+                        <a href="om-meg-Gard.html" class="read-more-link">Les mer om Gard</a>
+                    </article>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card" style="visibility: hidden;">
+                </div>
+            </div>
+        </div>
+        </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>Informasjon</h3>
+                <p>Regnbyen Bergen A/S er en informasjonsportal som gir deg tips og ressurser for å trives i Bergens unike klima. Vi tilbyr veiledning og inspirasjon om alt fra bilvedlikehold og riktig bekledning til innendørs- og utendørsaktiviteter.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Kontakt</h3>
+                <p>Har du spørsmål eller forslag? Kontakt oss gjerne! Din tilbakemelding hjelper oss med å forbedre tjenestene våre.<br><br>
+E-post: kontakt@hvl.bergen.no<br>
+Telefon: +47 55 58 70 00<br>
+Adresse:<br>
+Inndalsveien 28<br>
+5063 Bergen.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Om oss</h3>
+                <p>Vårt mål er å dele vår lidenskap for Bergen og gjøre regnet til en del av hverdagen. Vi er her for å hjelpe deg med å se mulighetene som finnes, uansett vær.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for regndråpe-effekten
+        const rainContainer = document.querySelector('.rain');
+
+        function createRaindrop() {
+            const drop = document.createElement('span');
+            drop.style.width = Math.random() * 3 + 'px';
+            drop.style.height = Math.random() * 10 + 20 + 'px';
+            drop.style.left = Math.random() * 100 + 'vw';
+            drop.style.animationDuration = Math.random() * 0.5 + 0.5 + 's';
+            
+            rainContainer.appendChild(drop);
+
+            drop.addEventListener('animationend', () => {
+                drop.remove();
+            });
+        }
+
+        setInterval(createRaindrop, 150);
+    </script>
+
+</body>
+
+</html>
