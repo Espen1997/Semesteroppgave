@@ -114,14 +114,11 @@
             color: #87ceeb;
         }
 
-        /* ************************************************* */
-        /* KORRIGERT CSS FOR VERTICAL DROPDOWN (Løsning 3) */
-        /* ************************************************* */
+        /* DROPDOWN - HORISONTALT */
         .hover-container {
             position: relative;
             display: inline-block;
             height: 100%;
-            /* Fjernet unødvendige flex-justeringer her */
         }
 
         .hover-trigger {
@@ -147,36 +144,31 @@
             position: absolute;
             top: 100%;
             left: 0;
-            
             background-color: rgba(51, 77, 92, 0.95);
-            min-width: 160px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 10;
             border-radius: 0 0 5px 5px;
             overflow: hidden;
             margin-top: 0;
+            flex-direction: row;
+            display: none;
         }
 
         .hover-list button {
-            /* STABLE NØKKEL-EGENSKAPER */
             background: none;
             border: none;
             color: #fff;
             padding: 10px 20px;
-            text-align: left; /* Tvinger teksten til venstre */
+            text-align: center;
             text-decoration: none;
-            display: block; /* Tvinger elementene til å stable vertikalt */
-            width: 100%; /* Fyller bredden av hover-list */
-            
-            /* NØKKEL-FIX: Float venstre for å unngå Flex-påvirkning fra foreldre */
-            float: left; 
-            
+            display: inline-block;
             cursor: pointer;
             transition: background-color 0.3s ease, color 0.3s ease;
             font-family: 'Open Sans', sans-serif;
             font-size: 1em;
             font-weight: 600;
             box-sizing: border-box; 
+            white-space: nowrap;
         }
 
         .hover-list button:hover {
@@ -185,10 +177,8 @@
         }
 
         .hover-container:hover .hover-list {
-            display: block;
+            display: flex;
         }
-        /* Slutt på dropdown CSS */
-        /* ************************************************* */
 
 
         .main-content {
@@ -322,13 +312,14 @@
                 margin-top: 0;
                 box-shadow: none;
                 border-radius: 0;
-                display: block; 
+                flex-direction: column;
+                display: none;
             }
             
             .hover-list button {
                 text-align: left;
                 padding: 10px 20px;
-                float: none; /* Fjern float i mobilvisning */
+                display: block;
             }
 
             .col-6 {
@@ -383,7 +374,7 @@
                             <button onclick="location.href='BRH-6.html'">Statestikk</button>
                         </div>
                     </div>
-                    <a href="OMOSS.html"><button>Om oss</button></a>
+                    <a href="om oss.html"><button>Om oss</button></a>
                     </div>
                 </ul>
             </nav>
