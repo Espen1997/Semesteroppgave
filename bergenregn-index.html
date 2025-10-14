@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Om oss - Regnbyen Bergen A/S</title>
+    <title>Regnbyen Bergen A/S</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    
+
+    <link rel="stylesheet" href="Main_style.css">
+
     <style>
+
+       
         /* Generelle stiler for siden */
         body {
             font-family: 'Open Sans', sans-serif;
@@ -17,7 +21,7 @@
             background-color: #f4f4f4;
             color: #333;
             line-height: 1.6;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Forhindrer horisontal scrollbar på grunn av regndråper */
         }
 
         /* Bakgrunnseffekt for regn */
@@ -27,8 +31,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            z-index: -1;
+            pointer-events: none; /* Lar brukeren klikke gjennom regneffekten */
+            z-index: -1; /* Plasserer regnet bak innholdet */
         }
         
         .rain span {
@@ -38,6 +42,7 @@
             animation: fall linear infinite;
         }
 
+        /* CSS-animasjon for regndråpene */
         @keyframes fall {
             0% {
                 transform: translateY(-100vh);
@@ -47,18 +52,19 @@
             }
         }
 
+        /* Innholdet på siden */
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px 0;
             position: relative;
-            z-index: 1;
+            z-index: 1; /* Sikrer at innholdet vises over regneffekten */
         }
 
-        /* Header stiler (Kombinert fra begge originale filer) */
+        /* Header stiler */
         .header {
-            background-color: rgba(51, 77, 92, 0.9);
+            background-color: rgba(51, 77, 92, 0.9); /* Halvgjennomsiktig bakgrunn for lesbarhet */
             color: #fff;
             padding: 15px 0;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -86,104 +92,25 @@
             list-style: none;
             margin: 0;
             padding: 0;
-            display: flex; /* Lagt til display: flex for å sikre HORISONTAL navigasjon */
-        }
-        
-        .header_links {
-            display: flex;
-            align-items: center;
-            height: 100%;
-        }
-
-        .header_links a {
-            text-decoration: none;
-            color: inherit;
-            display: inline-block;
-        }
-
-        .header_links button {
-            background: none;
-            border: none;
-            color: #fff;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1em;
-            font-weight: 600;
-            padding: 10px 15px;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .header_links button:hover {
-            color: #87ceeb;
-        }
-
-        /* DROPDOWN - HORISONTALT */
-        .hover-container {
-            position: relative;
-            display: inline-block;
-            height: 100%;
-        }
-
-        .hover-trigger {
-            color: #fff;
-            font-weight: 600;
-            padding: 10px 15px;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            white-space: nowrap;
-            background: none;
-            border: none;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1em;
-            display: block; 
-        }
-
-        .hover-trigger:hover {
-            color: #87ceeb;
-        }
-
-        .hover-list {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: rgba(51, 77, 92, 0.95);
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 10;
-            border-radius: 0 0 5px 5px;
-            overflow: hidden;
-            margin-top: 0;
-            flex-direction: row;
-        }
-
-        .hover-list button {
-            background: none;
-            border: none;
-            color: #fff;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1em;
-            font-weight: 600;
-            box-sizing: border-box; 
-            white-space: nowrap;
-        }
-
-        .hover-list button:hover {
-            background-color: #334d5c;
-            color: #87ceeb;
-        }
-
-        .hover-container:hover .hover-list {
             display: flex;
         }
 
-        /* Hovedinnhold og kortstiler (Uendret/konsistent) */
+        .main-nav ul li {
+            margin-left: 25px;
+        }
+
+        .main-nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav ul li a:hover {
+            color: #87ceeb;
+        }
+
+        /* Hovedinnhold stiler */
         .main-content {
             padding-top: 30px;
             padding-bottom: 30px;
@@ -210,8 +137,9 @@
             max-width: 100%;
         }
 
+        /* Kort/Boks stiler */
         .card {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.9); /* Halvgjennomsiktig hvit for lesbarhet */
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             padding: 25px;
@@ -227,31 +155,77 @@
             font-size: 1.8em;
         }
 
-        .card h3 {
-            color: #334d5c;
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 1.3em;
+        /* Spesifikke stiler for Aktiviteter-boksen */
+        .activity-options {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            flex-grow: 1;
+            align-items: center;
         }
-        
-        .read-more-link { 
-            background-color: #87ceeb;
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+
+        .activity-box {
             text-align: center;
-            margin-top: 15px;
-            display: inline-block;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 45%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .activity-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .activity-box i {
+            font-size: 3em;
+            color: #5cb85c;
+            margin-bottom: 10px;
+        }
+
+        .activity-box p {
+            margin: 0;
             font-weight: 600;
-            transition: background-color 0.3s ease;
+            color: #555;
         }
-        
-        .read-more-link:hover {
-            background-color: #4da6e6;
+
+        /* Spesifikke stiler for Bilde/Regnstatistikk boksen */
+        .image-placeholder {
+            background-color: #e6f2f9;
+            border: 1px dashed #a0d4ef;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 200px;
+            text-align: center;
+            color: #4da6e6;
+            flex-grow: 1;
         }
-        
-        /* Footer stiler (Uendret/konsistent) */
+
+        .image-placeholder p {
+            margin-top: 15px;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        /* Bilde i Info om Bergen boks */
+        .card-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        .image-caption {
+            font-size: 0.9em;
+            color: #777;
+            text-align: center;
+        }
+
+        /* Footer stiler */
         .footer {
             background-color: rgba(68, 68, 68, 0.9);
             color: #f0f0f0;
@@ -282,7 +256,7 @@
             line-height: 1.8;
         }
 
-        /* Responsivitet (Kombinert fra begge originale filer) */
+        /* Responsivitet for mindre skjermer */
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -292,38 +266,10 @@
             .main-nav ul {
                 margin-top: 15px;
                 justify-content: center;
-                display: block;
             }
 
-            .header_links {
-                flex-direction: column;
-            }
-            
-            .header_links button,
-            .hover-trigger,
-            .hover-container {
-                display: block;
-                width: 100%;
-                text-align: center;
-                padding: 10px 0;
-                box-sizing: border-box;
-            }
-
-            .hover-list {
-                position: static;
-                width: 100%;
-                min-width: 100%; 
-                margin-top: 0;
-                box-shadow: none;
-                border-radius: 0;
-                flex-direction: column;
-                display: none;
-            }
-            
-            .hover-list button {
-                text-align: left;
-                padding: 10px 20px;
-                display: block;
+            .main-nav ul li {
+                margin: 0 10px;
             }
 
             .col-6 {
@@ -350,15 +296,29 @@
                 font-size: 1.3em;
             }
 
+            .main-nav ul li {
+                margin: 0 5px;
+            }
+
             .card h2 {
                 font-size: 1.5em;
             }
+
+            .activity-options {
+                flex-direction: column;
+            }
+
+            .activity-box {
+                width: 80%;
+                margin-bottom: 15px;
+            }
         }
     </style>
-</head>
+    </head>
 <body>
 
     <div class="rain"></div>
+
     <header class="header">
         <div class="container header-content">
             <div class="logo">
@@ -378,7 +338,7 @@
 						</div>
 					</div>
                     <a href="om oss.html"><button>Om oss</button></a>
-                    </div> 
+                    <div class="header_links">
                 </ul>
             </nav>
         </div>
@@ -386,10 +346,28 @@
 
     <main class="container main-content">
         <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <h2>Møt Teamet Vårt</h2>
-                    <p>Regnbyen Bergen A/S er drevet av et dedikert team av entusiaster fra Bergen. Klikk på et navn for å lære mer om hvert teammedlem.</p>
+            <div class="col-6">
+                <div class="card card-full-height">
+                    <h2>Aktiviteter</h2>
+                    <div class="activity-options">
+                        <div class="activity-box">
+                            <i class="fas fa-car"></i>
+                            <p>Tekst<br>Bil</p>
+                        </div>
+                        <div class="activity-box">
+                            <i class="fas fa-ship"></i>
+                            <p>Tekst<br>Båt</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card card-full-height">
+                    <h2>Bilde</h2>
+                    <div class="image-placeholder">
+                        <i class="fas fa-chart-bar fa-5x"></i>
+                        <p>Regn statistikk</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -397,72 +375,40 @@
         <div class="row">
             <div class="col-6">
                 <div class="card">
-                    <article>
-                        <h3>Emil</h3>
-                        <p><strong>Ansvar:</strong> Kundeservice i Regnbyen A/S</p>
-                        <p>21 år gammel student ved HVL fra Stavanger. Emil elsker trening og isbading.</p>
-                        <a href="Om meg - Emil Bakken.html" class="read-more-link">Les mer om Emil</a>
-                    </article>
+                    <h2>Info om Bergen</h2>
+                    <p>Bergen kalles ofte regnbyen fordi den har rundt **200–250 regndager i året. Byens beliggenhet mellom hav og fjell gjør at det regner mye. Selv om været er vått, er Bergen kjent for vakker natur, fjorder og kulturliv..</p>
+                    <img src="https://cdn.discordapp.com/attachments/743090532854530130/1427610971555500195/Bergen-by.jpg?ex=68ef7dd3&is=68ee2c53&hm=5b11960f4ae5d2b0920468ac91d9184849df03221a2fa4b68c6068c28e0536d9" alt="Bergen bylandskap" class="card-image">
+                    <p class="image-caption">Bergen by</p>
                 </div>
             </div>
             <div class="col-6">
                 <div class="card">
-                    <article>
-                        <h3>Jonas</h3>
-                        <p><strong>Ansvar:</strong> Vaktmester i Regnbyen A/S</p>
-                        <p>21 år gammel prosjektmedlem som brenner for å dele Bergens beste turer.</p>
-                        <a href="om meg jonas.html" class="read-more-link">Les mer om Jonas</a>
-                    </article>
+                    <h2>Turforslag</h2>
+                    <p>**Bergen – Regnbyen**
+Vi har mange spennende turforslag på nettsiden – både for solfylte dager og når regnet bøtter ned. Enten du vil utforske byens kultur, historie, natur eller koselige kafeer, finner du tips og ruter som passer for deg. Bergen har mye å by på – uansett vær!
+.
+.</p>
+                    <p>.</p>
                 </div>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-6">
+            <div class="col-12"> 
                 <div class="card">
-                    <article>
-                        <h3>Espen</h3>
-                        <p><strong>Ansvar:</strong> Sjef i Regnbyen A/S</p>
-                        <p>28 år fra Askøy.Liker å game og elsker å jobbe med mennesker.</p>
-                        <a href="om-meg-Espen.html" class="read-more-link">Les mer om Espen</a>
-                    </article>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="card">
-                    <article>
-                        <h3>Øivind</h3>
-                        <p><strong>Ansvar:</strong> Klesansvarlig i Regnbyen A/S</p>
-                        <p>26 år fra Bergen. Elsker mote og Bergen.</p>
-                        <a href="om-meg-Oivind.html" class="read-more-link">Les mer om Øivind</a>
-                    </article>
+                    <h2>Fakta om Bergen</h2>
+                    <p>Bergen kalles regnbyen fordi den har over 200 regndager i året. Byens beliggenhet mellom hav og fjell gjør at det ofte kommer mye nedbør, men det stopper ikke bergenserne fra å nyte byen sin – de bare tar på seg regntøy og fortsetter som vanlig!
+.</p>
                 </div>
             </div>
         </div>
-        
-        <div class="row">
-            <div class="col-6">
-                <div class="card">
-                    <article>
-                        <h3>Gard</h3>
-                        <p><strong>Ansvar:</strong> Hus spesialist i Regnbyen A/S</p>
-                        <p>21 år fra Som. Elsker å jobbe med hus og hjelpe mennesker.</p>
-                        <a href="om-meg-Gard.html" class="read-more-link">Les mer om Gard</a>
-                    </article>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="card" style="visibility: hidden;">
-                </div>
-            </div>
-        </div>
-        </main>
+    </main>
 
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-col">
                 <h3>Informasjon</h3>
-                <p>Regnbyen Bergen A/S er en informasjonsportal som gir deg tips og ressurser for å trives i Bergens unike klima. Vi tilbyr veiledning og inspirasjon om alt fra bilvedlikehold og riktig bekledning til innendørs- og utendørsaktiviteter.</p>
+                <p>Regnbyen Bergen A/S har siden 2025 vært din pålitelige partner for all informasjon om vedlikehold og bolighold i Bergen. Vi hjelper deg med å holde hjemmet ditt i perfekt stand..</p>
             </div>
             <div class="footer-col">
                 <h3>Kontakt</h3>
@@ -475,7 +421,7 @@ Inndalsveien 28<br>
             </div>
             <div class="footer-col">
                 <h3>Om oss</h3>
-                <p>Vårt mål er å dele vår lidenskap for Bergen og gjøre regnet til en del av hverdagen. Vi er her for å hjelpe deg med å se mulighetene som finnes, uansett vær.</p>
+                <p>Vi er et lokalt selskap etablert i 2025 som brenner for å hjelpe bergensere med å ta vare på hjemmene sine. Vårt mål er å gjøre vedlikehold enkelt og tilgjengelig for alle.</p>
             </div>
         </div>
     </footer>
@@ -492,14 +438,18 @@ Inndalsveien 28<br>
             
             rainContainer.appendChild(drop);
 
+            // Fjern dråpen når animasjonen er ferdig for å unngå overflødig DOM-elementer
             drop.addEventListener('animationend', () => {
                 drop.remove();
             });
         }
 
-        setInterval(createRaindrop, 150);
+        // Lager kontinuerlig nye regndråper
+        setInterval(createRaindrop, 150); // Juster tallet for å endre frekvensen av regndråper
     </script>
 
 </body>
 
 </html>
+
+
