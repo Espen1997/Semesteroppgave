@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
+        /* Generelle stiler for siden - Hentet fra bergenregn.html */
         body {
             font-family: 'Open Sans', sans-serif;
             margin: 0;
@@ -19,6 +20,7 @@
             overflow-x: hidden;
         }
 
+        /* Bakgrunnseffekt for regn */
         .rain {
             position: fixed;
             top: 0;
@@ -36,6 +38,7 @@
             animation: fall linear infinite;
         }
 
+        /* CSS-animasjon for regndråpene */
         @keyframes fall {
             0% {
                 transform: translateY(-100vh);
@@ -45,6 +48,7 @@
             }
         }
 
+        /* Innholdet på siden */
         .container {
             width: 90%;
             max-width: 1200px;
@@ -54,6 +58,7 @@
             z-index: 1;
         }
 
+        /* Header stiler */
         .header {
             background-color: rgba(51, 77, 92, 0.9);
             color: #fff;
@@ -79,7 +84,7 @@
             color: #87ceeb;
         }
 
-        /* Navigasjon Stiler */
+        /* START: OPPDATERT NAVIGASJON STILER (Likt bergenregn-index.html) */
         .main-nav ul {
             list-style: none;
             margin: 0;
@@ -175,9 +180,10 @@
             display: block;
         }
 
-        /* Slutt på Navigasjon Stiler */
+        /* SLUTT: OPPDATERT NAVIGASJON STILER */
 
 
+        /* Hovedinnhold stiler */
         .main-content {
             padding-top: 30px;
             padding-bottom: 30px;
@@ -204,6 +210,7 @@
             max-width: 100%;
         }
 
+        /* Kort/Boks stiler */
         .card {
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 8px;
@@ -228,7 +235,8 @@
             font-size: 1.3em;
         }
         
-        .read-more-link {
+        /* Spesifikke stiler for knapper/lenker i team-boksene */
+        .read-more-link { 
             background-color: #87ceeb;
             color: white;
             text-decoration: none;
@@ -242,9 +250,10 @@
         }
         
         .read-more-link:hover {
-            background-color: #4da6e6;
+            background-color: #4da6e6; /* Litt mørkere blå ved hover */
         }
         
+        /* Footer stiler */
         .footer {
             background-color: rgba(68, 68, 68, 0.9);
             color: #f0f0f0;
@@ -275,6 +284,7 @@
             line-height: 1.8;
         }
 
+        /* Responsivitet - OPPDATERT FOR DEN NYE NAVIGASJONEN */
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
