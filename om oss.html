@@ -9,353 +9,14 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
-            margin: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .rain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        .rain span {
-            position: absolute;
-            background: #a0d4ef;
-            opacity: 0.6;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-100vh);
-            }
-            100% {
-                transform: translateY(100vh);
-            }
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        .header {
-            background-color: rgba(51, 77, 92, 0.9);
-            color: #fff;
-            padding: 15px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5em;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo i {
-            margin-right: 10px;
-            color: #87ceeb;
-        }
-
-        .main-nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .header_links {
-            display: flex;
-            align-items: center;
-            height: 100%;
-        }
-
-        .header_links a {
-            text-decoration: none;
-            color: inherit;
-            display: inline-block;
-        }
-
-        .header_links button {
-            background: none;
-            border: none;
-            color: #fff;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1em;
-            font-weight: 600;
-            padding: 10px 15px;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .header_links button:hover {
-            color: #87ceeb;
-        }
-
-        /* DROPDOWN - HORISONTALT */
-        .hover-container {
-            position: relative;
-            display: inline-block;
-            height: 100%;
-        }
-
-        .hover-trigger {
-            color: #fff;
-            font-weight: 600;
-            padding: 10px 15px;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            white-space: nowrap;
-            background: none;
-            border: none;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1em;
-            display: block; 
-        }
-
-        .hover-trigger:hover {
-            color: #87ceeb;
-        }
-
-        .hover-list {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: rgba(51, 77, 92, 0.95);
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 10;
-            border-radius: 0 0 5px 5px;
-            overflow: hidden;
-            margin-top: 0;
-            flex-direction: row;
-            display: none;
-        }
-
-        .hover-list button {
-            background: none;
-            border: none;
-            color: #fff;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1em;
-            font-weight: 600;
-            box-sizing: border-box; 
-            white-space: nowrap;
-        }
-
-        .hover-list button:hover {
-            background-color: #334d5c;
-            color: #87ceeb;
-        }
-
-        .hover-container:hover .hover-list {
-            display: flex;
-        }
-
-
-        .main-content {
-            padding-top: 30px;
-            padding-bottom: 30px;
-        }
-
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-
-        .col-6, .col-12 {
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .col-6 {
-            flex: 0 0 50%;
-            max-width: 50%;
-        }
-
-        .col-12 {
-            flex: 0 0 100%;
-            max-width: 100%;
-        }
-
-        .card {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            padding: 25px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card h2 {
-            color: #334d5c;
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 1.8em;
-        }
-
-        .card h3 {
-            color: #334d5c;
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 1.3em;
-        }
-        
-        .read-more-link { 
-            background-color: #87ceeb;
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-align: center;
-            margin-top: 15px;
-            display: inline-block;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
-        
-        .read-more-link:hover {
-            background-color: #4da6e6;
-        }
-        
-        .footer {
-            background-color: rgba(68, 68, 68, 0.9);
-            color: #f0f0f0;
-            padding: 30px 0;
-            margin-top: 30px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .footer-col {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .footer-col h3 {
-            color: #87ceeb;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-
-        .footer-col p {
-            font-size: 0.9em;
-            line-height: 1.8;
-        }
-
-        /* Responsivitet */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .main-nav ul {
-                margin-top: 15px;
-                justify-content: center;
-                display: block;
-            }
-
-            .header_links {
-                flex-direction: column;
-            }
-            
-            .header_links button,
-            .hover-trigger,
-            .hover-container {
-                display: block;
-                width: 100%;
-                text-align: center;
-                padding: 10px 0;
-                box-sizing: border-box;
-            }
-
-            .hover-list {
-                position: static;
-                width: 100%;
-                min-width: 100%; 
-                margin-top: 0;
-                box-shadow: none;
-                border-radius: 0;
-                flex-direction: column;
-                display: none;
-            }
-            
-            .hover-list button {
-                text-align: left;
-                padding: 10px 20px;
-                display: block;
-            }
-
-            .col-6 {
-                flex: 0 0 100%;
-                max-width: 100%;
-            }
-
-            .row {
-                margin-bottom: 10px;
-            }
-
-            .card {
-                margin-bottom: 20px;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 1.3em;
-            }
-
-            .card h2 {
-                font-size: 1.5em;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="Main_style.css"> 
+    
 </head>
 <body>
 
     <div class="rain"></div>
-<header class="header">
+
+    <header class="header">
         <div class="container header-content">
             <div class="logo">
                 <i class="fas fa-cloud-rain"></i> Regnbyen Bergen A/S
@@ -374,7 +35,7 @@
 						</div>
 					</div>
                     <a href="om oss.html"><button>Om oss</button></a>
-                    <div class="header_links">
+                </div>
                 </ul>
             </nav>
         </div>
@@ -384,8 +45,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <h2>Møt Teamet Vårt</h2>
-                    <p>Regnbyen Bergen A/S er drevet av et dedikert team av entusiaster fra Bergen. Klikk på et navn for å lære mer om hvert teammedlem.</p>
+                    <h1>Om oss: Velkommen til Regnbyen Bergen A/S</h1>
+                    <p>Vi er et lokalt initiativ etablert i 2025, drevet av en dyp lidenskap for Bergen og et ønske om å gjøre det beste ut av byens unike klima. Vårt mål er å gi huseiere, bilentusiaster og alle bergensere kunnskapen og inspirasjonen de trenger for å trives, uansett vær.</p>
                 </div>
             </div>
         </div>
@@ -393,72 +54,53 @@
         <div class="row">
             <div class="col-6">
                 <div class="card">
-                    <article>
-                        <h3>Emil</h3>
-                        <p><strong>Ansvar:</strong> Kundeservice i Regnbyen A/S</p>
-                        <p>21 år gammel student ved HVL fra Stavanger. Emil elsker trening og isbading.</p>
-                        <a href="Om meg - Emil Bakken.html" class="read-more-link">Les mer om Emil</a>
-                    </article>
+                    <h2>Vår Visjon</h2>
+                    <p>Bergen er mer enn bare regn; det er en livsstil. Vår visjon er å fjerne myten om at det fuktige klimaet er en hemsko. Vi ønsker å fremme et positivt syn på regnbyen gjennom praktiske råd og vedlikeholdstips.</p>
+                    <p>Vi tilbyr veiledning og inspirasjon om alt fra boligvedlikehold og riktig bekledning til innendørs- og utendørsaktiviteter.</p>
                 </div>
             </div>
             <div class="col-6">
                 <div class="card">
-                    <article>
-                        <h3>Jonas</h3>
-                        <p><strong>Ansvar:</strong> Vaktmester i Regnbyen A/S</p>
-                        <p>21 år gammel prosjektmedlem som brenner for å dele Bergens beste turer.</p>
-                        <a href="om meg jonas.html" class="read-more-link">Les mer om Jonas</a>
-                    </article>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-6">
-                <div class="card">
-                    <article>
-                        <h3>Espen</h3>
-                        <p><strong>Ansvar:</strong> Sjef i Regnbyen A/S</p>
-                        <p>28 år fra Askøy.Liker å game og elsker å jobbe med mennesker.</p>
-                        <a href="om-meg-Espen.html" class="read-more-link">Les mer om Espen</a>
-                    </article>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="card">
-                    <article>
-                        <h3>Øivind</h3>
-                        <p><strong>Ansvar:</strong> Klesansvarlig i Regnbyen A/S</p>
-                        <p>26 år fra Bergen. Elsker mote og Bergen.</p>
-                        <a href="om-meg-Oivind.html" class="read-more-link">Les mer om Øivind</a>
-                    </article>
+                    <h2>Våre Ekspertiseområder</h2>
+                    <div class="activity-options">
+                        <div class="activity-box">
+                            <i class="fas fa-home"></i>
+                            <p>Boligvedlikehold</p>
+                        </div>
+                        <div class="activity-box">
+                            <i class="fas fa-car"></i>
+                            <p>Bilpleie i vått klima</p>
+                        </div>
+                        <div class="activity-box">
+                            <i class="fas fa-chart-line"></i>
+                            <p>Værstatistikk</p>
+                        </div>
+                    </div>
+                    <p style="text-align: center; margin-top: 15px; font-style: italic; color: #555;">Spesialister på å trives i et kystklima.</p>
                 </div>
             </div>
         </div>
         
         <div class="row">
-            <div class="col-6">
-                <div class="card">
-                    <article>
-                        <h3>Gard</h3>
-                        <p><strong>Ansvar:</strong> Hus spesialist i Regnbyen A/S</p>
-                        <p>22 år fra Som. Elsker å jobbe med hus og hjelpe mennesker.</p>
-                        <a href="om-meg-Gard.html" class="read-more-link">Les mer om Gard</a>
-                    </article>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="card" style="visibility: hidden;">
+            <div class="col-12">
+                <div class="card" style="background-color: #f7e6ff; border: 1px solid #d9b3ff;">
+                    <h2>Bli en del av Regnbyen</h2>
+                    <p>Har du en god historie, et unikt vedlikeholdstips eller forslag til en aktivitet som passer for regnværsdager? Vi vil gjerne høre fra deg! Vi vokser basert på tilbakemeldinger og bidrag fra lokalbefolkningen.</p>
+                    
+                    <a href="#" class="activity-box read-more-link" style="background-color: #9933ff; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; text-align: center; margin-top: 15px; display: inline-block;">
+                        Kontakt oss i dag!
+                    </a>
                 </div>
             </div>
         </div>
-        </main>
+
+    </main>
 
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-col">
-                <h3>Informasjon</h3>
-                <p>Regnbyen Bergen A/S er en informasjonsportal som gir deg tips og ressurser for å trives i Bergens unike klima. Vi tilbyr veiledning og inspirasjon om alt fra bilvedlikehold og riktig bekledning til innendørs- og utendørsaktiviteter.</p>
+                <h3>Vårt oppdrag</h3>
+                <p>Å gi bergensere og besøkende inspirasjon og informasjon. Vi tilbyr veiledning og inspirasjon om alt fra bilvedlikehold og riktig bekledning til innendørs- og utendørsaktiviteter.</p>
             </div>
             <div class="footer-col">
                 <h3>Kontakt</h3>
@@ -484,18 +126,24 @@ Inndalsveien 28<br>
             drop.style.width = Math.random() * 3 + 'px';
             drop.style.height = Math.random() * 10 + 20 + 'px';
             drop.style.left = Math.random() * 100 + 'vw';
-            drop.style.animationDuration = Math.random() * 0.5 + 0.5 + 's';
-            
+            drop.style.animationDuration = Math.random() * 2 + 3 + 's';
+            drop.style.animationDelay = Math.random() * 5 + 's';
+            drop.style.opacity = Math.random() * 0.4 + 0.2;
+            drop.style.background = '#a0d4ef'; 
+
             rainContainer.appendChild(drop);
 
-            drop.addEventListener('animationend', () => {
+            setTimeout(() => {
                 drop.remove();
-            });
+            }, (Math.random() * 2 + 3) * 1000); 
         }
 
-        setInterval(createRaindrop, 150);
+        for (let i = 0; i < 50; i++) {
+            createRaindrop();
+        }
+
+        setInterval(createRaindrop, 100); 
     </script>
 
 </body>
-
 </html>
