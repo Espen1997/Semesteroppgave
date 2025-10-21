@@ -1,382 +1,714 @@
+/* Generelle stiler for siden */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
 
-        /* Generelle stiler for siden */
-        body {
-            font-family: 'Open Sans', sans-serif;
-            margin: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
-            overflow-x: hidden; /* Forhindrer horisontal scrollbar på grunn av regndråper */
-        }
+/* Bakgrunnseffekt for regn */
+.rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
 
-        /* Bakgrunnseffekt for regn */
-        .rain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none; /* Lar brukeren klikke gjennom regneffekten */
-            z-index: -1; /* Plasserer regnet bak innholdet */
-        }
-        
-        .rain span {
-            position: absolute;
-            background: #a0d4ef;
-            opacity: 0.6;
-            animation: fall linear infinite;
-        }
+.rain span {
+    position: absolute;
+    background: #a0d4ef;
+    opacity: 0.6;
+    animation: fall linear infinite;
+}
 
-        /* CSS-animasjon for regndråpene */
-        @keyframes fall {
-            0% {
-                transform: translateY(-100vh);
-            }
-            100% {
-                transform: translateY(100vh);
-            }
-        }
+/* CSS-animasjon for regndrÃ¥pene */
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
 
-        /* Innholdet på siden */
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 0;
-            position: relative;
-            z-index: 1; /* Sikrer at innholdet vises over regneffekten */
-        }
+/* Innholdet pÃ¥ siden */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+    position: relative;
+    z-index: 1;
+}
 
-        /* Header stiler */
-        .header {
-            background-color: rgba(51, 77, 92, 0.9); /* Halvgjennomsiktig bakgrunn for lesbarhet */
-            color: #fff;
-            padding: 15px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
+/* Header stiler */
+.header {
+    background-color: rgba(51, 77, 92, 0.9);
+    color: #fff;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
 
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .logo {
-            font-size: 1.5em;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-        }
+.logo {
+    font-size: 1.5em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
 
-        .logo i {
-            margin-right: 10px;
-            color: #87ceeb;
-        }
+.logo i {
+    margin-right: 10px;
+    color: #87ceeb;
+}
 
-        .main-nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
 
-        .main-nav ul li {
-            margin-left: 25px;
-        }
+.main-nav ul li {
+    margin-left: 25px;
+}
 
-        .main-nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
+.main-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
 
-        .main-nav ul li a:hover {
-            color: #87ceeb;
-        }
+.main-nav ul li a:hover {
+    color: #87ceeb;
+}
 
-        /* Hovedinnhold stiler */
-        .main-content {
-            padding-top: 30px;
-            padding-bottom: 30px;
-        }
+/* Hovedinnhold stiler */
+.main-content {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
 
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
 
-        .col-6, .col-12 {
-            padding: 20px;
-            box-sizing: border-box;
-        }
+.col-6, .col-12 {
+    padding: 20px;
+    box-sizing: border-box;
+}
 
-        .col-6 {
-            flex: 0 0 50%;
-            max-width: 50%;
-        }
+.col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
 
-        .col-12 {
-            flex: 0 0 100%;
-            max-width: 100%;
-        }
+.col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
 
-        /* Kort/Boks stiler */
-        .card {
-            background-color: rgba(255, 255, 255, 0.9); /* Halvgjennomsiktig hvit for lesbarhet */
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            padding: 25px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
+/* Kort/Boks stiler */
+.card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
 
-        .card h2 {
-            color: #334d5c;
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 1.8em;
-        }
+.card h2 {
+    color: #334d5c;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
 
-        /* Spesifikke stiler for Aktiviteter-boksen */
-        .activity-options {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-            flex-grow: 1;
-            align-items: center;
-        }
+.card h3 {
+    color: #334d5c;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
 
-        .activity-box {
-            text-align: center;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            width: 45%;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+/* Spesifikke stiler for Aktiviteter-boksen */
+.activity-options {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    flex-grow: 1;
+    align-items: center;
+}
 
-        .activity-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        }
+.activity-box {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 45%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-        .activity-box i {
-            font-size: 3em;
-            color: #5cb85c;
-            margin-bottom: 10px;
-        }
+.activity-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
 
-        .activity-box p {
-            margin: 0;
-            font-weight: 600;
-            color: #555;
-        }
+.activity-box i {
+    font-size: 3em;
+    color: #5cb85c;
+    margin-bottom: 10px;
+}
 
-        /* Spesifikke stiler for Bilde/Regnstatistikk boksen */
-        .image-placeholder {
-            background-color: #e6f2f9;
-            border: 1px dashed #a0d4ef;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 200px;
-            text-align: center;
-            color: #4da6e6;
-            flex-grow: 1;
-        }
+.activity-box p {
+    margin: 0;
+    font-weight: 600;
+    color: #555;
+}
 
-        .image-placeholder p {
-            margin-top: 15px;
-            font-size: 1.2em;
-            font-weight: 600;
-        }
+/* Spesifikke stiler for Bilde/Regnstatistikk boksen */
+.image-placeholder {
+    background-color: #e6f2f9;
+    border: 1px dashed #a0d4ef;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    text-align: center;
+    color: #4da6e6;
+    flex-grow: 1;
+}
 
-        /* Bilde i Info om Bergen boks */
-        .card-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-            margin-top: 15px;
-            margin-bottom: 5px;
-        }
+.image-placeholder p {
+    margin-top: 15px;
+    font-size: 1.2em;
+    font-weight: 600;
+}
 
-        .image-caption {
-            font-size: 0.9em;
-            color: #777;
-            text-align: center;
-        }
+/* Bilde i Info om Bergen boks */
+.card-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
 
-        /* Footer stiler */
-        .footer {
-            background-color: rgba(68, 68, 68, 0.9);
-            color: #f0f0f0;
-            padding: 30px 0;
-            margin-top: 30px;
-        }
+.image-caption {
+    font-size: 0.9em;
+    color: #777;
+    text-align: center;
+}
 
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
+/* Footer stiler */
+.footer {
+    background-color: rgba(68, 68, 68, 0.9);
+    color: #f0f0f0;
+    padding: 30px 0;
+    margin-top: 30px;
+}
 
-        .footer-col {
-            flex: 1;
-            min-width: 250px;
-        }
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
 
-        .footer-col h3 {
-            color: #87ceeb;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
+.footer-col {
+    flex: 1;
+    min-width: 250px;
+}
 
-        .footer-col p {
-            font-size: 0.9em;
-            line-height: 1.8;
-        }
+.footer-col h3 {
+    color: #87ceeb;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
 
-        /* Responsivitet for mindre skjermer */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
+.footer-col p {
+    font-size: 0.9em;
+    line-height: 1.8;
+}
 
-            .main-nav ul {
-                margin-top: 15px;
-                justify-content: center;
-            }
+/* Header links styling */
+.header_links {
+    text-decoration: none;
+    background-color: transparent;
+    color: white;
+    padding: 10px 10px;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
 
-            .main-nav ul li {
-                margin: 0 10px;
-            }
+.header_links a {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
 
-            .col-6 {
-                flex: 0 0 100%;
-                max-width: 100%;
-            }
+.header_links button {
+    text-decoration: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    padding: 10px 10px;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+}
 
-            .row {
-                margin-bottom: 10px;
-            }
+.header_links button:hover {
+    background-color: #f0f0f0;
+    color: rgba(51, 77, 92, 0.9);
+}
 
-            .card {
-                margin-bottom: 20px;
-            }
+/* Hover container - dropdown menu */
+.hover-container {
+    position: relative;
+    display: inline-block;
+    height: 100%;
+}
 
-            .footer-content {
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
+.hover-trigger {
+    padding: 10px 20px;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    display: block;
+    border: none;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
 
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 1.3em;
-            }
+.hover-trigger:hover {
+    color: #87ceeb;
+}
 
-            .main-nav ul li {
-                margin: 0 5px;
-            }
+.hover-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -100px;
+    background-color: rgba(51, 77, 92, 0.95);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 400px;
+    z-index: 10;
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
+    margin-top: 0;
+    flex-direction: row;
+}
 
-            .card h2 {
-                font-size: 1.5em;
-            }
+.hover-list button {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    background: none;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    font-weight: 600;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
 
-            .activity-options {
-                flex-direction: column;
-            }
+.hover-list button:hover {
+    background-color: #f0f0f0;
+    color: rgba(51, 77, 92, 0.9);
+}
 
-            .activity-box {
-                width: 80%;
-                margin-bottom: 15px;
-            }
-        }
-              .hover-container {
-      position: relative;
-      display: inline-block;
+.hover-container:hover {
+    background-color: #f0f0f0;
+    color: rgba(51, 77, 92, 0.9);
+    border-radius: 4px;
+}
+
+.hover-container:hover .hover-trigger {
+    color: rgba(51, 77, 92, 0.9);
+}
+
+.hover-container:hover .hover-list {
+    display: flex;
+}
+
+/* Read more link styling */
+.read-more-link {
+    background-color: #87ceeb;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 15px;
+    display: inline-block;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.read-more-link:hover {
+    background-color: #4da6e6;
+}
+
+/* Interactive Activities - Accordion style */
+.interactive-activities {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.activity-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.activity-group {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.activity-group.active {
+    box-shadow: 0 4px 12px rgba(0, 140, 200, 0.1);
+}
+
+.activity-item {
+    cursor: pointer;
+    background-color: #f8f8f8;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.activity-item:hover, .activity-group.active .activity-item {
+    background-color: #eaf6ff;
+    border-bottom: 1px solid #87ceeb;
+}
+
+.activity-item h4 {
+    margin: 0;
+    color: #334d5c;
+}
+
+.activity-item h4 + p {
+    margin-left: auto;
+    font-weight: 600;
+}
+
+.activity-item p {
+    margin: 0;
+    color: #777;
+    font-size: 0.9em;
+}
+
+.activity-item i {
+    font-size: 1.8em;
+    color: #5cb85c;
+    min-width: 30px;
+}
+
+.activity-details {
+    background-color: #f0f8ff;
+    padding: 0 15px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.4s ease;
+}
+
+.activity-details.show {
+    max-height: 500px;
+    opacity: 1;
+    padding: 15px;
+}
+
+.detail-description {
+    font-size: 0.95em;
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.detail-tip {
+    border-top: 1px dashed #a0d4ef;
+    padding-top: 10px;
+    font-size: 0.9em;
+    color: #334d5c;
+}
+
+.detail-tip strong {
+    color: #334d5c;
+}
+
+/* Stiler for "Om meg" sidene */
+.profile-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 30px auto;
+    max-width: 800px;
+}
+
+.profile-container h1 {
+    color: #334d5c;
+    border-bottom: 3px solid #87ceeb;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.profile-container h2 {
+    color: #334d5c;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.profile-container h3 {
+    color: #334d5c;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.profile-container img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-container ul {
+    line-height: 2;
+    margin-left: 20px;
+}
+
+.profile-container dl {
+    line-height: 1.8;
+}
+
+.profile-container dt {
+    font-weight: bold;
+    color: #334d5c;
+    margin-top: 15px;
+}
+
+.profile-container dd {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.profile-container details {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f0f8ff;
+    border-radius: 5px;
+}
+
+.profile-container summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: #334d5c;
+}
+
+.profile-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.profile-container table, .profile-container th, .profile-container td {
+    border: 1px solid #ddd;
+}
+
+.profile-container th, .profile-container td {
+    padding: 12px;
+    text-align: left;
+}
+
+.profile-container th {
+    background-color: #334d5c;
+    color: white;
+}
+
+.profile-container tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.interests {
+    margin: 20px 0;
+}
+
+.contact-info {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f0f8ff;
+    border-radius: 8px;
+    border-left: 4px solid #87ceeb;
+}
+
+.contact-info a {
+    color: #334d5c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-info a:hover {
+    color: #87ceeb;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 24px;
+    background-color: #87ceeb;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.back-link:hover {
+    background-color: #4da6e6;
+}
+
+/* Responsivitet for mindre skjermer */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
     }
 
-    .hover-trigger {
-      padding: 10px 20px;
-      background-color: transparent;
-      color: white;
-      cursor: pointer;
-      border-radius: 4px;
+    .main-nav ul {
+        margin-top: 15px;
+        justify-content: center;
+        display: block;
+    }
+
+    .header_links {
+        flex-direction: column;
+    }
+
+    .header_links button,
+    .hover-trigger,
+    .hover-container {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        box-sizing: border-box;
     }
 
     .hover-list {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: -100px;
-      background-color: transparent;
-      
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      width: 400px;
-    }
-    .header_links {
-          text-decoration: none;
-        background-color: transparent;
-        color: white;
-        padding: 10px 10px;
-         transition: background-color 0.3s ease;
-        border-radius: 4px;
-        font-weight: bold;
-        font-size: 18px;
-        border: none;
-    }
-
-    .header_links button {
-        text-decoration: none;
-        cursor: pointer;
-        background-color:  transparent;
-        color: white;
-        padding: 10px 10px;
-         transition: background-color 0.3s ease;
-        border-radius: 4px;
-        font-weight: bold;
-        font-size: 18px;
-        border: none;
+        position: static;
+        width: 100%;
+        min-width: 100%;
+        margin-top: 0;
+        box-shadow: none;
+        border-radius: 0;
+        flex-direction: column;
+        left: 0;
     }
 
     .hover-list button {
-      padding: 10px;
-      border-bottom: 1px solid #eee;
+        text-align: left;
+        padding: 10px 20px;
+        display: block;
     }
 
-    .hover-list button:hover {
-      background-color: #f0f0f0;
-      color: rgba(51, 77, 92, 0.9);
-    }
-    .header_links button:hover {
-        background-color: #f0f0f0;
-      color: rgba(51, 77, 92, 0.9)
-    }
-    .hover-container:hover{
-         background-color: #f0f0f0;
-      color: rgba(51, 77, 92, 0.9);
-      border-radius: 4px;
-
-
-    }
-    .hover-trigger:hover{
-        color: rgba(51, 77, 92, 0.9);
-    }
-    .hover-container:hover .hover-trigger{
-        color: rgba(51, 77, 92, 0.9);
+    .main-nav ul li {
+        margin: 0 10px;
     }
 
-    .hover-container:hover .hover-list {
-      display: block;
-
+    .col-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
     }
+
+    .row {
+        margin-bottom: 10px;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .profile-container {
+        padding: 20px;
+    }
+
+    .profile-container img {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.3em;
+    }
+
+    .main-nav ul li {
+        margin: 0 5px;
+    }
+
+    .card h2 {
+        font-size: 1.5em;
+    }
+
+    .activity-options {
+        flex-direction: column;
+    }
+
+    .activity-box {
+        width: 80%;
+        margin-bottom: 15px;
+    }
+}
