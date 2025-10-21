@@ -3,303 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bil og Vedlikehold i Bergen - Regnbyen Bergen A/S</title>
+    <title>Energisparing i bolig - Regnbyen Bergen A/S</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-
+    
     <link rel="stylesheet" href="Main_style.css">
     
-    <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
-            margin: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .rain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        .rain span {
-            position: absolute;
-            background: #a0d4ef;
-            opacity: 0.6;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-100vh);
-            }
-            100% {
-                transform: translateY(100vh);
-            }
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        .header {
-            background-color: rgba(51, 77, 92, 0.9);
-            color: #fff;
-            padding: 15px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5em;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo i {
-            margin-right: 10px;
-            color: #87ceeb;
-        }
-
-        .main-nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        .main-nav ul li {
-            margin-left: 25px;
-        }
-
-        .main-nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .main-nav ul li a:hover {
-            color: #87ceeb;
-        }
-
-        .main-content {
-            padding-top: 30px;
-            padding-bottom: 30px;
-        }
-
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-
-        .col-6, .col-12 {
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .col-6 {
-            flex: 0 0 50%;
-            max-width: 50%;
-        }
-
-        .col-12 {
-            flex: 0 0 100%;
-            max-width: 100%;
-        }
-
-        .card {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            padding: 25px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card h2 {
-            color: #334d5c;
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 1.8em;
-        }
-
-        .activity-options {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-            flex-grow: 1;
-            align-items: center;
-        }
-
-        .activity-box {
-            text-align: center;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            width: 45%;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .activity-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        }
-
-        .activity-box i {
-            font-size: 3em;
-            color: #5cb85c;
-            margin-bottom: 10px;
-        }
-
-        .activity-box p {
-            margin: 0;
-            font-weight: 600;
-            color: #555;
-        }
-
-        .image-placeholder {
-            background-color: #e6f2f9;
-            border: 1px dashed #a0d4ef;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 200px;
-            text-align: center;
-            color: #4da6e6;
-            flex-grow: 1;
-        }
-
-        .image-placeholder p {
-            margin-top: 15px;
-            font-size: 1.2em;
-            font-weight: 600;
-        }
-
-        .card-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-            margin-top: 15px;
-            margin-bottom: 5px;
-        }
-
-        .image-caption {
-            font-size: 0.9em;
-            color: #777;
-            text-align: center;
-        }
-
-        .footer {
-            background-color: rgba(68, 68, 68, 0.9);
-            color: #f0f0f0;
-            padding: 30px 0;
-            margin-top: 30px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .footer-col {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .footer-col h3 {
-            color: #87ceeb;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-
-        .footer-col p {
-            font-size: 0.9em;
-            line-height: 1.8;
-        }
-
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .main-nav ul {
-                margin-top: 15px;
-                justify-content: center;
-            }
-
-            .main-nav ul li {
-                margin: 0 10px;
-            }
-
-            .col-6 {
-                flex: 0 0 100%;
-                max-width: 100%;
-            }
-
-            .row {
-                margin-bottom: 10px;
-            }
-
-            .card {
-                margin-bottom: 20px;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 1.3em;
-            }
-
-            .main-nav ul li {
-                margin: 0 5px;
-            }
-
-            .card h2 {
-                font-size: 1.5em;
-            }
-
-            .activity-options {
-                flex-direction: column;
-            }
-
-            .activity-box {
-                width: 80%;
-                margin-bottom: 15px;
-            }
-        }
-    </style>
 </head>
 <body>
 
@@ -324,7 +35,7 @@
 						</div>
 					</div>
                     <a href="om oss.html"><button>Om oss</button></a>
-                    <div>
+                </div>
                 </ul>
             </nav>
         </div>
@@ -334,8 +45,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <h1>Slik velger og vedlikeholder du bil i Bergen</h1>
-                    <p>Som bileier i Bergen er det spesielt viktig å tenke på hvilken bil du velger og hvordan du vedlikeholder den for å takle det **fuktige** og *utfordrende* klimaet. Her gir vi deg tips for et mest mulig vedlikeholdsfritt biltema.</p>
+                    <h1>Effektiv Energisparing og Isolering i Bergens Klima</h1>
+                    <p>Høye strømpriser og fuktighet gjør energieffektivisering i Bergen til en smart investering. Ved å fokusere på god isolasjon og moderne varmeløsninger, kan du sikre et tørt, sunt og økonomisk hjem.</p>
                 </div>
             </div>
         </div>
@@ -343,26 +54,23 @@
         <div class="row">
             <div class="col-6">
                 <div class="card">
-                    <h2>Viktige stikkord</h2>
+                    <h2>Viktigheten av God Isolering</h2>
                     <div>
-                        <p>Når du vurderer bil, bør du tenke på disse nøkkelpunktene:</p>
+                        <p>Korrekt isolasjon er avgjørende for å hindre varmetap og unngå kondens, som er hovedårsaken til fuktproblemer i vegger og tak:</p>
                         <ul>
-                            <li>**Dekk og veigrep**:
+                            <li>**Loft og tak**:
                                 <ul>
-                                    <li>Velg dekk med god drenering for å unngå vannplaning.</li>
-                                    <li>Vinterdekk med godt mønster er essensielt for å takle våt snø og islagte veier.</li>
+                                    <li>Mesteparten av varmen stiger. God isolering her er det mest kostnadseffektive tiltaket for å redusere oppvarmingsbehovet.</li>
                                 </ul>
                             </li>
-                            <li>**4-hjulsdrift**:
+                            <li>**Vinduer og dører**:
                                 <ul>
-                                    <li>Anbefales sterkt for tryggere kjøring på glatte og bratte veier.</li>
-                                    <li>Gir bedre trekkraft og kontroll i alle værforhold.</li>
+                                    <li>Bytt til moderne vinduer (3-lags) for å redusere varmetap og trekk. Tetting av lister er et raskt og billig tiltak.</li>
                                 </ul>
                             </li>
-                            <li>**Rustbehandling**:
+                            <li>**Yttervegger**:
                                 <ul>
-                                    <li>Et must for å forlenge bilens levetid.</li>
-                                    <li>Spesialbehandling av understell beskytter mot salt og fukt.</li>
+                                    <li>Etterisolering av yttervegger kan dramatisk forbedre inneklimaet og redusere energiforbruket over tid.</li>
                                 </ul>
                             </li>
                         </ul>
@@ -371,9 +79,9 @@
             </div>
             <div class="col-6">
                 <div class="card">
-                    <figure>
-                        <img src="https://via.placeholder.com/600x400.png?text=Bilde+av+en+bil+i+regnvær" alt="Bilde av en bil som kjører på en regnfull vei i Bergen" class="card-image">
-                        <figcaption class="image-caption">En godt utstyrt bil takler Bergensværet.</figcaption>
+                    <figure class="image-placeholder">
+                        <i class="fas fa-thermometer-half" style="font-size: 5em; color: #ff5733;"></i>
+                        <p>Energitiltak - Reduser varmetapet</p>
                     </figure>
                 </div>
             </div>
@@ -382,35 +90,35 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <h2>Sjekkliste for vedlikehold</h2>
+                    <h2>Sjekkliste for Energieffektivisering</h2>
                     <table>
                         <thead>
                             <tr>
                                 <th>Oppgave</th>
-                                <th>Frekvens</th>
-                                <th>Viktighet</th>
+                                <th>Anbefalt Tidsrom</th>
+                                <th>Besparelse (Est.)</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Rustkontroll</td>
-                                <td>Årlig</td>
-                                <td>**Høy**</td>
+                                <td>Etterisoler loft/tak</td>
+                                <td>Større prosjekt</td>
+                                <td>Høy</td>
                             </tr>
                             <tr>
-                                <td>Dekkbytte</td>
-                                <td>Hver sesong</td>
-                                <td>**Høy**</td>
+                                <td>Tett sprekker rundt vinduer/dører</td>
+                                <td>Vår eller høst</td>
+                                <td>Middels</td>
                             </tr>
                             <tr>
-                                <td>Vask av bil</td>
-                                <td>Ukentlig</td>
-                                <td>Medium</td>
+                                <td>Installer Varmepumpe</td>
+                                <td>Enkel installasjon</td>
+                                <td>Svært Høy</td>
                             </tr>
                             <tr>
-                                <td>Sjekk av dreneringshull</td>
-                                <td>Månedlig</td>
-                                <td>Medium</td>
+                                <td>Skift til LED-belysning</td>
+                                <td>Gjennomførbart raskt</td>
+                                <td>Lav/Middels</td>
                             </tr>
                         </tbody>
                     </table>
@@ -420,10 +128,13 @@
 
         <div class="row">
             <div class="col-12">
-                <div class="card" style="background-color: #f0f8ff; border: 1px solid #d0e0ff;">
-                    <h2>Annonse: Rimeligste verkstedet i Bergen</h2>
-                    <p>Trenger bilen din en understellsbehandling eller en sjekk? Vi har samlet en liste over billige og pålitelige verksteder i Bergen-området. Gode priser betyr at du kan ta vare på bilen din uten at det koster skjorta. <em>Dette er et sponset innlegg.</em></p>
-                    <a href="https://www.dekkteam.no" class="activity-box" style="background-color: #87ceeb; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; text-align: center; margin-top: 15px;">Finn ditt nærmeste verksted her!</a>
+                <div class="card" style="background-color: #eaf6ff; border: 1px solid #cce0ff;">
+                    <h2>Trenger du Energirådgivning?</h2>
+                    <p>Få en gratis befaring av ditt energiforbruk og råd om de beste tiltakene for din bolig i Bergen. Vi har lokale eksperter som kjenner klimaet!</p>
+                    
+                    <a href="#" class="activity-box read-more-link" style="background-color: #5cb85c; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; text-align: center; margin-top: 15px;">
+                        Finn din lokale energirådgiver her!
+                    </a>
                 </div>
             </div>
         </div>
@@ -433,7 +144,7 @@
         <div class="container footer-content">
             <div class="footer-col">
                 <h3>Informasjon</h3>
-                <p>Regnbyen Bergen A/S har siden 2025 vært din pålitelige partner for informasjon om bil og vedlikehold i Bergen. Vi hjelper deg med å holde kjøretøyet ditt i perfekt stand gjennom alle årstider.</p>
+                <p>Regnbyen Bergen A/S har siden 2025 vært din pålitelige partner for all informasjon om vedlikehold og bolighold i Bergen. Vi hjelper deg med å holde hjemmet ditt i perfekt stand.</p>
             </div>
             <div class="footer-col">
                 <h3>Kontakt</h3>
@@ -446,7 +157,7 @@ Inndalsveien 28<br>
             </div>
             <div class="footer-col">
                 <h3>Om oss</h3>
-                <p>Vi er et lokalt selskap etablert i 2025 som brenner for å hjelpe bergensere med å ta vare på bilene sine. Vårt mål er å gjøre bilvedlikehold enkelt og tilgjengelig for alle i byen vår.</p>
+                <p>Vi er et lokalt selskap etablert i 2025 som brenner for å hjelpe bergensere med å ta vare på hjemmene sine. Vårt mål er å gjøre vedlikehold enkelt og tilgjengelig for alle.</p>
             </div>
         </div>
     </footer>
