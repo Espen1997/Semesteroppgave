@@ -26,7 +26,7 @@ body {
     animation: fall linear infinite;
 }
 
-/* CSS-animasjon for regndrÃ¥pene */
+/* CSS-animasjon for regndråpene */
 @keyframes fall {
     0% {
         transform: translateY(-100vh);
@@ -36,7 +36,7 @@ body {
     }
 }
 
-/* Innholdet pÃ¥ siden */
+/* Innholdet på siden */
 .container {
     width: 90%;
     max-width: 1200px;
@@ -146,40 +146,48 @@ body {
     font-size: 1.3em;
 }
 
-/* Spesifikke stiler for Aktiviteter-boksen */
+/* Spesifikke stiler for Aktiviteter-boksen - OPPDATERT for om oss.html og index.html */
 .activity-options {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap; 
+    gap: 15px; 
+    justify-content: center;
     margin-top: 20px;
     flex-grow: 1;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .activity-box {
     text-align: center;
     padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 45%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #cce0ff; 
+    background-color: #e6f6ff; 
+    border-radius: 8px; 
+    flex: 1 1 180px; /* Justert for å tillate 3-5 bokser på en rad */
+    max-width: 30%; 
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    box-sizing: border-box;
 }
 
 .activity-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    background-color: #cce0ff; 
+    transform: none; 
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.1); 
 }
 
 .activity-box i {
-    font-size: 3em;
-    color: #5cb85c;
+    font-size: 2.5em; 
+    color: #007bff; 
     margin-bottom: 10px;
 }
 
 .activity-box p {
     margin: 0;
     font-weight: 600;
-    color: #555;
+    color: #333;
 }
+/* SLUTT PÅ OPPDATERT STIL */
 
 /* Spesifikke stiler for Bilde/Regnstatistikk boksen */
 .image-placeholder {
@@ -193,6 +201,8 @@ body {
     text-align: center;
     color: #4da6e6;
     flex-grow: 1;
+    border-radius: 8px;
+    margin-top: 20px;
 }
 
 .image-placeholder p {
@@ -317,18 +327,20 @@ body {
     display: none;
     position: absolute;
     top: 100%;
-    left: -100px;
+    left: 50%; /* Justert for å sentrere i forhold til trigger (omtrentlig) */
+    transform: translateX(-50%);
     background-color: rgba(51, 77, 92, 0.95);
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     list-style: none;
     padding: 0;
     margin: 0;
-    width: 400px;
+    width: auto; /* Justert til auto for å flyte med innholdet */
     z-index: 10;
     border-radius: 0 0 5px 5px;
     overflow: hidden;
     margin-top: 0;
     flex-direction: row;
+    white-space: nowrap; /* Holder knappene på en rad */
 }
 
 .hover-list button {
@@ -347,7 +359,6 @@ body {
     font-size: 1em;
     font-weight: 600;
     box-sizing: border-box;
-    white-space: nowrap;
 }
 
 .hover-list button:hover {
@@ -355,14 +366,8 @@ body {
     color: rgba(51, 77, 92, 0.9);
 }
 
-.hover-container:hover {
-    background-color: #f0f0f0;
-    color: rgba(51, 77, 92, 0.9);
-    border-radius: 4px;
-}
-
 .hover-container:hover .hover-trigger {
-    color: rgba(51, 77, 92, 0.9);
+    color: #87ceeb; /* Setter fargen tilbake til lys blå når Prosjekter er hovered, for konsistens */
 }
 
 .hover-container:hover .hover-list {
@@ -387,7 +392,7 @@ body {
     background-color: #4da6e6;
 }
 
-/* Interactive Activities - Accordion style */
+/* Interactive Activities - Accordion style (Used in BRH-5.html) */
 .interactive-activities {
     display: flex;
     flex-direction: column;
@@ -445,184 +450,32 @@ body {
 
 .activity-item i {
     font-size: 1.8em;
-    color: #5cb85c;
+    color: #5cb85c; /* Default farge, overstyres lokalt i BRH-5 for rød/grønn */
     min-width: 30px;
 }
 
 .activity-details {
     background-color: #f0f8ff;
-    padding: 0 15px;
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-in-out, opacity 0.4s ease;
-}
-
-.activity-details.show {
-    max-height: 500px;
-    opacity: 1;
     padding: 15px;
+    border-top: 1px solid #87ceeb;
 }
 
-.detail-description {
-    font-size: 0.95em;
-    color: #555;
-    margin-top: 0;
+.activity-details p {
     margin-bottom: 10px;
 }
 
-.detail-tip {
-    border-top: 1px dashed #a0d4ef;
-    padding-top: 10px;
-    font-size: 0.9em;
-    color: #334d5c;
+.activity-details p:last-child {
+    margin-bottom: 0;
 }
 
-.detail-tip strong {
-    color: #334d5c;
-}
-
-/* Stiler for "Om meg" sidene */
-.profile-container {
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    padding: 40px;
-    margin: 30px auto;
-    max-width: 800px;
-}
-
-.profile-container h1 {
-    color: #334d5c;
-    border-bottom: 3px solid #87ceeb;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-
-.profile-container h2 {
-    color: #334d5c;
-    margin-top: 30px;
-    margin-bottom: 15px;
-}
-
-.profile-container h3 {
-    color: #334d5c;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-.profile-container img {
-    max-width: 300px;
-    height: auto;
-    border-radius: 10px;
-    display: block;
-    margin: 20px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.profile-container ul {
-    line-height: 2;
-    margin-left: 20px;
-}
-
-.profile-container dl {
-    line-height: 1.8;
-}
-
-.profile-container dt {
-    font-weight: bold;
-    color: #334d5c;
-    margin-top: 15px;
-}
-
-.profile-container dd {
-    margin-left: 20px;
-    margin-bottom: 10px;
-}
-
-.profile-container details {
-    margin: 20px 0;
-    padding: 15px;
-    background-color: #f0f8ff;
-    border-radius: 5px;
-}
-
-.profile-container summary {
-    cursor: pointer;
-    font-weight: bold;
-    color: #334d5c;
-}
-
-.profile-container table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-}
-
-.profile-container table, .profile-container th, .profile-container td {
-    border: 1px solid #ddd;
-}
-
-.profile-container th, .profile-container td {
-    padding: 12px;
-    text-align: left;
-}
-
-.profile-container th {
-    background-color: #334d5c;
-    color: white;
-}
-
-.profile-container tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-.interests {
-    margin: 20px 0;
-}
-
-.contact-info {
-    margin-top: 30px;
-    padding: 20px;
-    background-color: #f0f8ff;
-    border-radius: 8px;
-    border-left: 4px solid #87ceeb;
-}
-
-.contact-info a {
-    color: #334d5c;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.contact-info a:hover {
-    color: #87ceeb;
-}
-
-.back-link {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 12px 24px;
-    background-color: #87ceeb;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.back-link:hover {
-    background-color: #4da6e6;
-}
-
-/* Responsivitet for mindre skjermer */
+/* Media queries for responsivitet */
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
         text-align: center;
     }
 
-    .main-nav ul {
+    .main-nav {
         margin-top: 15px;
         justify-content: center;
         display: block;
@@ -651,6 +504,7 @@ body {
         border-radius: 0;
         flex-direction: column;
         left: 0;
+        transform: none; /* Fjern transform for mobil */
     }
 
     .hover-list button {
@@ -666,6 +520,7 @@ body {
     .col-6 {
         flex: 0 0 100%;
         max-width: 100%;
+        padding: 10px 20px; /* Justert padding for mobil */
     }
 
     .row {
@@ -675,40 +530,20 @@ body {
     .card {
         margin-bottom: 20px;
     }
+    
+    .activity-box {
+        max-width: 100%; /* Én boks pr rad på små skjermer */
+        flex: 1 1 100%;
+    }
 
     .footer-content {
         flex-direction: column;
-        gap: 20px;
-    }
-
-    .profile-container {
-        padding: 20px;
-    }
-
-    .profile-container img {
-        max-width: 200px;
     }
 }
 
-@media (max-width: 480px) {
-    .logo {
-        font-size: 1.3em;
-    }
-
-    .main-nav ul li {
-        margin: 0 5px;
-    }
-
-    .card h2 {
-        font-size: 1.5em;
-    }
-
-    .activity-options {
-        flex-direction: column;
-    }
-
+@media (min-width: 769px) and (max-width: 1024px) {
     .activity-box {
-        width: 80%;
-        margin-bottom: 15px;
+        max-width: 45%; /* To bokser pr rad på mellomstore skjermer */
+        flex: 1 1 45%;
     }
 }
