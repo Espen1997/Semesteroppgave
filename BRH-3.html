@@ -11,6 +11,295 @@
     
     <link rel="stylesheet" href="Main_style.css">
     
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .rain span {
+            position: absolute;
+            background: #a0d4ef;
+            opacity: 0.6;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            background-color: rgba(51, 77, 92, 0.9);
+            color: #fff;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: #87ceeb;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .main-nav ul li {
+            margin-left: 25px;
+        }
+
+        .main-nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav ul li a:hover {
+            color: #87ceeb;
+        }
+
+        .main-content {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .col-6, .col-12 {
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .col-6 {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
+        .col-12 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card h2 {
+            color: #334d5c;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .activity-options {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            flex-grow: 1;
+            align-items: center;
+        }
+
+        .activity-box {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 45%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .activity-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .activity-box i {
+            font-size: 3em;
+            color: #5cb85c;
+            margin-bottom: 10px;
+        }
+
+        .activity-box p {
+            margin: 0;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .image-placeholder {
+            background-color: #e6f2f9;
+            border: 1px dashed #a0d4ef;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 200px;
+            text-align: center;
+            color: #4da6e6;
+            flex-grow: 1;
+        }
+
+        .image-placeholder p {
+            margin-top: 15px;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .card-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        .image-caption {
+            font-size: 0.9em;
+            color: #777;
+            text-align: center;
+        }
+
+        .footer {
+            background-color: rgba(68, 68, 68, 0.9);
+            color: #f0f0f0;
+            padding: 30px 0;
+            margin-top: 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-col h3 {
+            color: #87ceeb;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .footer-col p {
+            font-size: 0.9em;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .main-nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+
+            .main-nav ul li {
+                margin: 0 10px;
+            }
+
+            .col-6 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+
+            .row {
+                margin-bottom: 10px;
+            }
+
+            .card {
+                margin-bottom: 20px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.3em;
+            }
+
+            .main-nav ul li {
+                margin: 0 5px;
+            }
+
+            .card h2 {
+                font-size: 1.5em;
+            }
+
+            .activity-options {
+                flex-direction: column;
+            }
+
+            .activity-box {
+                width: 80%;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -24,74 +313,131 @@
             <nav class="main-nav">
                 <ul>
                     <div class="header_links">
-                        <a href="bergenregn-index.html">
-                            <button>Hjem</button></a>
-                        <div class="hover-container">
-                            <div class="hover-trigger">Prosjekter</div>
-                            <div class="hover-list">
-                                <button onclick="location.href='BRH-3.html'">Vedlikehold</button>
-                                <button onclick="location.href='BRH-5.html'">Aktiviteter</button>
-                                <button onclick="location.href='BRH-6.html'">Statestikk</button>
-                            </div>
-                        </div>
-                        <a href="BRH-2.html"><button>Om oss</button></a>
-                    </div>
+                    <a href="bergenregn-index.html">
+					<button>Hjem</button></a>
+                    <div class="hover-container">
+						<div class="hover-trigger">Prosjekter</div>
+						<div class="hover-list">
+							<button onclick="location.href='BRH-3.html'">Vedlikehold</button>
+							<button onclick="location.href='BRH-5.html'">Aktiviteter</button>
+							<button onclick="location.href='BRH-6.html'">Statestikk</button>
+						</div>
+					</div>
+                    <a href="om oss.html"><button>Om oss</button></a>
+                </div>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main class="container main-content">
-        
-        <p class="back-link-container">
-            <a href="bergenregn-index.html">
-                <i class="fas fa-arrow-left"></i> Tilbake til Hovedsiden
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <h1>Vedlikehold av bolig i et regnfullt klima</h1>
+                    <p>Som huseier i Bergen er det **essensielt** å ha kunnskap om vedlikehold som motvirker effektene av det fuktige klimaet. Regelmessig ettersyn og bruk av riktige produkter kan spare deg for store utgifter i fremtiden.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="card">
+                    <h2>Produkter for fuktig klima</h2>
+                    <div>
+                        <p>Det er *avgjørende* å velge produkter som er spesifikt utviklet for å takle fukt og regn. Her er en liste over viktige produkter:</p>
+                        <ul>
+                            <li>**Sopp- og algefjerner**:
+                                <ul>
+                                    <li>Brukes for å rengjøre og forhindre vekst av biologisk belegg på utvendige overflater.</li>
+                                    <li>Et viktig første steg før maling.</li>
+                                </ul>
+                            </li>
+                            <li>**Maling for vått klima**:
+                                <ul>
+                                    <li>Velg en maling med god heft, sopp- og algedrepende midler.</li>
+                                    <li>Sørg for at overflaten er tørr før påføring for best resultat.</li>
+                                </ul>
+                            </li>
+                            <li>**Luftavfukter**:
+                                <ul>
+                                    <li>Viktig for å kontrollere fuktigheten innendørs, spesielt i kjellere og andre utsatte rom.</li>
+                                    <li>Hjelper med å forebygge sopp og mugg.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card">
+                    <figure>
+                        <img src="https://cdn.discordapp.com/attachments/743090532854530130/1427613331576979550/nymalte_studentboliger_i_bergen.jpg?ex=68ef8006&is=68ee2e86&hm=01e787b1cf5490e4d455a5ca39a1528178397a26d80f6b7076b183b562c4ae54" class="card-image">
+                        <figcaption class="image-caption">En nymalt studentbolig i Bergen.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <h2>Vedlikeholdssjekkliste for huseiere</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Oppgave</th>
+                                <th>Frekvens</th>
+                                <th>Verktøy/Produkt</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Rens av takrenner</td>
+                                <td>Vår og høst</td>
+                                <td>Hansker, stige, renseutstyr</td>
+                            </tr>
+                            <tr>
+                                <td>Kontroll av drenering</td>
+                                <td>Årlig</td>
+                                <td>Ingen verktøy</td>
+                            </tr>
+                            <tr>
+                                <td>Vask av fasade</td>
+                                <td>Annethvert år</td>
+                                <td>Sopp- og algefjerner, høytrykkspyler</td>
+                            </tr>
+                            <tr>
+                                <td>Maling av hus</td>
+                                <td>Hvert 5-10 år</td>
+                                <td>Maling, pensler, ruller</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+    <div class="col-12">
+        <div class="card" style="background-color: #f0f8ff; border: 1px solid #d0e0ff;">
+            <h2>Annonse:Trenger du hjelp?</h2>
+            <p>Få et gratis prisoverslag fra lokale fagfolk som er eksperter på vedlikehold i Bergen. Vi formidler kontakt til dyktige malere, takleggere og fuktspesialister som hjelper deg med å holde boligen din i topp stand!</p>
+            
+            <a href="https://www.bergenoverflateteknikk.no" class="activity-box" style="background-color: #87ceeb; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; text-align: center; margin-top: 15px;" target="_blank">
+                Få et gratis tilbud fra Bergen Overflateteknikk her!
             </a>
-        </p>
-
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <h1>Slik vedlikeholder du boligen i Bergen</h1>
-                    <p>Bergen's klima er vakkert, men utfordrende for boliger. Fuktighet og hyppig nedbør krever ekstra oppmerksomhet for å forhindre skader og bevare eiendommens verdi.</p>
-                </div>
-            </div>
+            
         </div>
-
-        <div class="row">
-            <div class="col-6">
-                <div class="card card-full-height">
-                    <h2>Fokusområde: Tak og Takrenner</h2>
-                    <p>Et velfungerende tak er boligens første forsvarslinje. I Bergen er det kritisk å sikre at takstein er intakte og at takrennene er frie for løv og mose. Tett takrenne kan føre til vannskader på fasaden og fundamentet.</p>
-                    <p><strong>Tips:</strong> Inspiser takrennene minst fire ganger i året og etter kraftig nedbør.</p>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="card card-full-height">
-                    <h2>Fokusområde: Fasade og Maling</h2>
-                    <p>Fuktighet er malingens verste fiende. Våt vegg gir grobunn for alger og mugg, noe som igjen fører til at malingen flasser. Bruk maling av høy kvalitet som er spesielt egnet for kystklima.</p>
-                    <p><strong>Tips:</strong> Sørg for god ventilasjon og luftgjennomstrømning rundt huset. Vurder å vaske fasaden årlig med et mildt soppdrepende middel.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <h2>Fokusområde: Fukt i Kjeller og Grunnmur</h2>
-                    <p>Mange eldre bergensboliger sliter med fukt fra grunnen. God drenering er avgjørende. Sørg for at bakken heller bort fra huset og at dreneringssystemet fungerer som det skal.</p>
-                    <p><strong>Tips:</strong> Installer avfukter i kjelleren og sjekk jevnlig for tegn på kondens eller saltutslag på murvegger.</p>
-                </div>
-            </div>
-        </div>
-        
+    </div>
+</div>
     </main>
 
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-col">
-                <h3>Vårt oppdrag</h3>
-                <p>Å gi bergensere og besøkende den beste informasjonen om vedlikehold og bolighold i Bergen. Vi hjelper deg med å holde hjemmet ditt i perfekt stand.</p>
+                <h3>Informasjon</h3>
+                <p>Regnbyen Bergen A/S har siden 2025 vært din pålitelige partner for all informasjon om vedlikehold og bolighold i Bergen. Vi hjelper deg med å holde hjemmet ditt i perfekt stand.</p>
             </div>
             <div class="footer-col">
                 <h3>Kontakt</h3>
@@ -117,23 +463,16 @@ Inndalsveien 28<br>
             drop.style.width = Math.random() * 3 + 'px';
             drop.style.height = Math.random() * 10 + 20 + 'px';
             drop.style.left = Math.random() * 100 + 'vw';
-            drop.style.animationDuration = Math.random() * 2 + 3 + 's';
-            drop.style.animationDelay = Math.random() * 5 + 's';
-            drop.style.opacity = Math.random() * 0.4 + 0.2;
-            drop.style.background = '#a0d4ef'; 
-
+            drop.style.animationDuration = Math.random() * 0.5 + 0.5 + 's';
+            
             rainContainer.appendChild(drop);
 
-            setTimeout(() => {
+            drop.addEventListener('animationend', () => {
                 drop.remove();
-            }, (Math.random() * 2 + 3) * 1000); 
+            });
         }
 
-        for (let i = 0; i < 50; i++) {
-            createRaindrop();
-        }
-
-        setInterval(createRaindrop, 100); 
+        setInterval(createRaindrop, 150);
     </script>
 
 </body>
