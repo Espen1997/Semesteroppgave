@@ -3,303 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aktiviteter i Bergen - Regnbyen Bergen A/S</title>
+    <title>Helse og Velvære - Regnbyen Bergen A/S</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-
+    
     <link rel="stylesheet" href="Main_style.css">
     
-    <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
-            margin: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .rain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        .rain span {
-            position: absolute;
-            background: #a0d4ef;
-            opacity: 0.6;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-100vh);
-            }
-            100% {
-                transform: translateY(100vh);
-            }
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        .header {
-            background-color: rgba(51, 77, 92, 0.9);
-            color: #fff;
-            padding: 15px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5em;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo i {
-            margin-right: 10px;
-            color: #87ceeb;
-        }
-
-        .main-nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        .main-nav ul li {
-            margin-left: 25px;
-        }
-
-        .main-nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .main-nav ul li a:hover {
-            color: #87ceeb;
-        }
-
-        .main-content {
-            padding-top: 30px;
-            padding-bottom: 30px;
-        }
-
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-
-        .col-6, .col-12 {
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .col-6 {
-            flex: 0 0 50%;
-            max-width: 50%;
-        }
-
-        .col-12 {
-            flex: 0 0 100%;
-            max-width: 100%;
-        }
-
-        .card {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            padding: 25px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card h2 {
-            color: #334d5c;
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 1.8em;
-        }
-
-        .activity-options {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-            flex-grow: 1;
-            align-items: center;
-        }
-
-        .activity-box {
-            text-align: center;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            width: 45%;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .activity-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        }
-
-        .activity-box i {
-            font-size: 3em;
-            color: #5cb85c;
-            margin-bottom: 10px;
-        }
-
-        .activity-box p {
-            margin: 0;
-            font-weight: 600;
-            color: #555;
-        }
-
-        .image-placeholder {
-            background-color: #e6f2f9;
-            border: 1px dashed #a0d4ef;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 200px;
-            text-align: center;
-            color: #4da6e6;
-            flex-grow: 1;
-        }
-
-        .image-placeholder p {
-            margin-top: 15px;
-            font-size: 1.2em;
-            font-weight: 600;
-        }
-
-        .card-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-            margin-top: 15px;
-            margin-bottom: 5px;
-        }
-
-        .image-caption {
-            font-size: 0.9em;
-            color: #777;
-            text-align: center;
-        }
-
-        .footer {
-            background-color: rgba(68, 68, 68, 0.9);
-            color: #f0f0f0;
-            padding: 30px 0;
-            margin-top: 30px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .footer-col {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .footer-col h3 {
-            color: #87ceeb;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-
-        .footer-col p {
-            font-size: 0.9em;
-            line-height: 1.8;
-        }
-
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .main-nav ul {
-                margin-top: 15px;
-                justify-content: center;
-            }
-
-            .main-nav ul li {
-                margin: 0 10px;
-            }
-
-            .col-6 {
-                flex: 0 0 100%;
-                max-width: 100%;
-            }
-
-            .row {
-                margin-bottom: 10px;
-            }
-
-            .card {
-                margin-bottom: 20px;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 1.3em;
-            }
-
-            .main-nav ul li {
-                margin: 0 5px;
-            }
-
-            .card h2 {
-                font-size: 1.5em;
-            }
-
-            .activity-options {
-                flex-direction: column;
-            }
-
-            .activity-box {
-                width: 80%;
-                margin-bottom: 15px;
-            }
-        }
-    </style>
 </head>
 <body>
 
@@ -324,7 +35,7 @@
 						</div>
 					</div>
                     <a href="om oss.html"><button>Om oss</button></a>
-                    <div class="header_links">
+                </div>
                 </ul>
             </nav>
         </div>
@@ -334,8 +45,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <h1>Aktiv og spennende i all slags vær</h1>
-                    <p>Bergen er full av muligheter, selv når det regner. Her finner du inspirasjon og tips til hvordan du kan leve et aktivt og spennende liv, uansett om du foretrekker å være ute i regnet eller innendørs.</p>
+                    <h1>Hold deg frisk: Helse og Velvære i Bergen</h1>
+                    <p>Det fuktige og skiftende klimaet i Bergen kan påvirke både fysisk og mental helse. Riktig ernæring, regelmessig bevegelse og god lysterapi er nøkkelen til å trives året rundt.</p>
                 </div>
             </div>
         </div>
@@ -343,26 +54,23 @@
         <div class="row">
             <div class="col-6">
                 <div class="card">
-                    <h2>Innendørs aktiviteter</h2>
+                    <h2>Bekjemp fuktighet og kulde</h2>
                     <div>
-                        <p>Når regnet pøser ned, kan du utforske Bergens mange kultur- og fritidstilbud. Dette er en perfekt mulighet for å oppleve byens *rikelige* kulturliv:</p>
+                        <p>Fuktighet kan øke risikoen for luftveisplager. Slik kan du styrke immunforsvaret og holde deg tørr:</p>
                         <ul>
-                            <li>**Museer**:
+                            <li>**Vitamin D-tilskudd**:
                                 <ul>
-                                    <li>Besøk KODE kunstmuseer og komponisthjem.</li>
-                                    <li>Lær om byens historie på Bryggens Museum.</li>
+                                    <li>Lite sollys i vinterhalvåret krever tilskudd for å opprettholde energinivået og beintettheten.</li>
                                 </ul>
                             </li>
-                            <li>**Shopping og kafébesøk**:
+                            <li>**Riktig bekledning**:
                                 <ul>
-                                    <li>Slapp av med en kaffe i et av byens koselige nabolag.</li>
-                                    <li>Utforsk småbutikker i sidegatene for unike funn.</li>
+                                    <li>Bruk lag-på-lag-prinsippet. Ull innerst og vanntett/vindtett ytterst er avgjørende for turer ute.</li>
                                 </ul>
                             </li>
-                            <li>**Trening og velvære**:
+                            <li>**Inneklima**:
                                 <ul>
-                                    <li>Meld deg på en klatretime i et av byens innendørs klatresentre.</li>
-                                    <li>Nyt et boblebad og en varm badstue på et spa.</li>
+                                    <li>Luft ut ofte, selv om det regner. Bruk avfukter i kjelleren og sjekk for muggsporer.</li>
                                 </ul>
                             </li>
                         </ul>
@@ -371,10 +79,17 @@
             </div>
             <div class="col-6">
                 <div class="card">
-                    <figure>
-                        <img src="https://cdn.discordapp.com/attachments/749583471734947850/1427719064389812224/akvariet-i-Bergen.jpg?ex=68efe27e&is=68ee90fe&hm=2d6238c3610beac94dcfc82187d9768726608c8b7546a269a2004135a5a9abab" alt="Inne i et koselig galleri eller kafé i Bergen." class="card-image">
-                        <figcaption class="image-caption">Akvariet i Bergen.</figcaption>
-                    </figure>
+                    <div class="activity-options">
+                        <div class="activity-box">
+                            <i class="fas fa-seedling"></i>
+                            <p>Vitamin D</p>
+                        </div>
+                        <div class="activity-box">
+                            <i class="fas fa-spa"></i>
+                            <p>Lysterapi</p>
+                        </div>
+                    </div>
+                    <p style="text-align: center; margin-top: 15px; font-style: italic; color: #555;">To enkle grep for økt velvære i mørketiden.</p>
                 </div>
             </div>
         </div>
@@ -382,30 +97,30 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <h2>Utendørs aktiviteter i regn</h2>
+                    <h2>Mental Helse i Mørketiden</h2>
                     <table>
                         <thead>
                             <tr>
-                                <th>Aktivitet</th>
-                                <th>Nødvendig utstyr</th>
+                                <th>Strategi</th>
                                 <th>Fordel</th>
+                                <th>Hvordan gjøre det</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Tur til Fløyen</td>
-                                <td>Regntøy, gode sko</td>
-                                <td>Færre folk, frisk luft</td>
+                                <td>Regelmessig bevegelse</td>
+                                <td>Øker endorfiner og energi</td>
+                                <td>Gå tur med vanntett jakke, eller bruk innendørs treningssenter.</td>
                             </tr>
                             <tr>
-                                <td>Byvandring</td>
-                                <td>Paraply, vanntett jakke</td>
-                                <td>Byen er vakker i regn</td>
+                                <td>Sosialt nettverk</td>
+                                <td>Reduserer isolasjon</td>
+                                <td>Møt venner på kafé eller bibliotek.</td>
                             </tr>
                             <tr>
-                                <td>Fisketur i båt</td>
-                                <td>Overtrekksklær, sjøstøvler</td>
-                                <td>Roligere og mer personlig</td>
+                                <td>Lysterapi</td>
+                                <td>Kan motvirke vinterdepresjon</td>
+                                <td>Bruk en god lysterapilampe 30 minutter hver morgen.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -415,10 +130,9 @@
 
         <div class="row">
             <div class="col-12">
-                <div class="card" style="background-color: #f0f8ff; border: 1px solid #d0e0ff;">
-                    <h2>Annonse: Finn din perfekte tur i Bergensområde</h2>
-                    <p>Hos ut.no finner du alt du trenger for en vellykket tur. Perfekt for familier, nybegynnere og erfarne turgåere. Utforsk alt fra enkle søndagsturer til lengre fjellturer, med gode tips for en trygg og fin opplevelse</p>
-                    <a href="https://ut.no/utforsker/omrade/1240/bergen/turforslag" class="activity-box" style="background-color: #87ceeb; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; text-align: center; margin-top: 15px;">Finn din tur her</a>
+                <div class="card" style="background-color: #fff8e1; border: 1px solid #ffe082;">
+                    <h2>Dagens Oppmuntring</h2>
+                    <p style="text-align: center; font-size: 1.2em; font-weight: 600; color: #ff9800;">"Det finnes ikke dårlig vær, bare dårlige klær." – Ta på deg regntøyet og nyt naturen!</p>
                 </div>
             </div>
         </div>
@@ -428,7 +142,7 @@
         <div class="container footer-content">
             <div class="footer-col">
                 <h3>Informasjon</h3>
-                <p>Regnbyen Bergen A/S har siden 2025 vært din pålitelige kilde til informasjon om aktiviteter og opplevelser i Bergen. Vi hjelper deg med å finne de beste mulighetene byen har å by på, i all slags vær.</p>
+                <p>Regnbyen Bergen A/S har siden 2025 vært din pålitelige partner for all informasjon om vedlikehold og bolighold i Bergen. Vi hjelper deg med å holde hjemmet ditt i perfekt stand.</p>
             </div>
             <div class="footer-col">
                 <h3>Kontakt</h3>
@@ -441,7 +155,7 @@ Inndalsveien 28<br>
             </div>
             <div class="footer-col">
                 <h3>Om oss</h3>
-                <p>Vi er et lokalt selskap etablert i 2025 som brenner for å vise frem alt det fantastiske Bergen har å tilby. Vårt mål er å inspirere bergensere og besøkende til å leve aktivt og oppleve byen fullt ut.</p>
+                <p>Vi er et lokalt selskap etablert i 2025 som brenner for å hjelpe bergensere med å ta vare på hjemmene sine. Vårt mål er å gjøre vedlikehold enkelt og tilgjengelig for alle.</p>
             </div>
         </div>
     </footer>
