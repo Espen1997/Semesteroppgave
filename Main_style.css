@@ -76,11 +76,11 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex; /* Beholdt fra Main_style.css for generell navigasjon */
+    display: flex;
 }
 
 .main-nav ul li {
-    margin-left: 25px; /* Beholdt fra Main_style.css for generell navigasjon */
+    margin-left: 25px;
 }
 
 .main-nav ul li a {
@@ -94,7 +94,7 @@ body {
     color: #87ceeb;
 }
 
-/* Header links styling (fra jonas-about-page og Main_style) */
+/* Header links styling */
 .header_links {
     display: flex;
     align-items: center;
@@ -114,7 +114,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-size: 1em;
     font-weight: 600;
-    padding: 10px 15px; /* Justert padding for å matche jonas-about-page.html */
+    padding: 10px 15px;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
     white-space: nowrap;
@@ -126,7 +126,7 @@ body {
     color: rgba(51, 77, 92, 0.9);
 }
 
-/* Hover container - dropdown menu (fra jonas-about-page og Main_style) */
+/* Hover container - dropdown menu */
 .hover-container {
     position: relative;
     display: inline-block;
@@ -136,7 +136,7 @@ body {
 .hover-trigger {
     color: #fff;
     font-weight: 600;
-    padding: 10px 15px; /* Justert padding for å matche jonas-about-page.html */
+    padding: 10px 15px;
     cursor: pointer;
     transition: color 0.3s ease;
     white-space: nowrap;
@@ -156,16 +156,16 @@ body {
     display: none;
     position: absolute;
     top: 100%;
-    left: 0; /* Satt til 0 for å matche jonas-about-page.html's utseende */
+    left: 0;
     background-color: rgba(51, 77, 92, 0.95);
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Brukte jonas-about-page's shadow */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 10;
     border-radius: 0 0 5px 5px;
     overflow: hidden;
     margin-top: 0;
     flex-direction: row;
-    list-style: none; /* Lagt til for å sikre konsistens */
-    padding: 0; /* Lagt til for å sikre konsistens */
+    list-style: none;
+    padding: 0;
 }
 
 .hover-list button {
@@ -211,28 +211,28 @@ body {
     padding-bottom: 30px;
 }
 
-.row { /* Fra Main_style.css */
+.row { 
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 40px;
 }
 
-.col-6, .col-12 { /* Fra Main_style.css */
+.col-6, .col-12 { 
     padding: 20px;
     box-sizing: border-box;
 }
 
-.col-6 { /* Fra Main_style.css */
+.col-6 { 
     flex: 0 0 50%;
     max-width: 50%;
 }
 
-.col-12 { /* Fra Main_style.css */
+.col-12 { 
     flex: 0 0 100%;
     max-width: 100%;
 }
 
-/* Kort/Boks stiler (Fra Main_style.css) */
+/* Kort/Boks stiler */
 .card {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 8px;
@@ -257,7 +257,7 @@ body {
     font-size: 1.3em;
 }
 
-/* Spesifikke stiler for Aktiviteter-boksen (Fra Main_style.css) */
+/* Spesifikke stiler for Aktiviteter-boksen */
 .activity-options {
     display: flex;
     justify-content: space-around;
@@ -292,7 +292,7 @@ body {
     color: #555;
 }
 
-/* Spesifikke stiler for Bilde/Regnstatistikk boksen (Fra Main_style.css) */
+/* Spesifikke stiler for Bilde/Regnstatistikk boksen */
 .image-placeholder {
     background-color: #e6f2f9;
     border: 1px dashed #a0d4ef;
@@ -312,7 +312,7 @@ body {
     font-weight: 600;
 }
 
-/* Bilde i Info om Bergen boks (Fra Main_style.css) */
+/* Bilde i Info om Bergen boks */
 .card-image {
     max-width: 100%;
     height: auto;
@@ -327,7 +327,7 @@ body {
     text-align: center;
 }
 
-/* Read more link styling (Fra Main_style.css) */
+/* Read more link styling */
 .read-more-link {
     background-color: #87ceeb;
     color: white;
@@ -345,7 +345,7 @@ body {
     background-color: #4da6e6;
 }
 
-/* Interactive Activities - Accordion style (Fra Main_style.css) */
+/* Interactive Activities - Accordion style */
 .interactive-activities {
     display: flex;
     flex-direction: column;
@@ -463,12 +463,13 @@ body {
     margin-bottom: 15px;
 }
 
-.profile-container h3 { /* Fra Main_style.css for konsistens */
+.profile-container h3 { 
     color: #334d5c;
     margin-top: 20px;
     margin-bottom: 10px;
 }
 
+/* OBS: Denne overstyres av den nye stilen for .profile-image-container img for Emil-siden */
 .profile-container img {
     max-width: 300px;
     height: auto;
@@ -483,63 +484,63 @@ body {
     margin-left: 20px;
 }
 
-.profile-container dl { /* Fra Main_style.css for konsistens */
+.profile-container dl { 
     line-height: 1.8;
 }
 
-.profile-container dt { /* Fra Main_style.css for konsistens */
+.profile-container dt { 
     font-weight: bold;
     color: #334d5c;
     margin-top: 15px;
 }
 
-.profile-container dd { /* Fra Main_style.css for konsistens */
+.profile-container dd { 
     margin-left: 20px;
     margin-bottom: 10px;
 }
 
-.profile-container details { /* Fra Main_style.css for konsistens */
+.profile-container details { 
     margin: 20px 0;
     padding: 15px;
     background-color: #f0f8ff;
     border-radius: 5px;
 }
 
-.profile-container summary { /* Fra Main_style.css for konsistens */
+.profile-container summary { 
     cursor: pointer;
     font-weight: bold;
     color: #334d5c;
 }
 
-.profile-container table { /* Fra Main_style.css for konsistens */
+.profile-container table { 
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
 }
 
-.profile-container table, .profile-container th, .profile-container td { /* Fra Main_style.css for konsistens */
+.profile-container table, .profile-container th, .profile-container td { 
     border: 1px solid #ddd;
 }
 
-.profile-container th, .profile-container td { /* Fra Main_style.css for konsistens */
+.profile-container th, .profile-container td { 
     padding: 12px;
     text-align: left;
 }
 
-.profile-container th { /* Fra Main_style.css for konsistens */
+.profile-container th { 
     background-color: #334d5c;
     color: white;
 }
 
-.profile-container tr:nth-child(even) { /* Fra Main_style.css for konsistens */
+.profile-container tr:nth-child(even) { 
     background-color: #f9f9f9;
 }
 
-.interests { /* Fra Main_style.css for konsistens */
+.interests { 
     margin: 20px 0;
 }
 
-.contact-info { /* Fra Main_style.css for konsistens */
+.contact-info { 
     margin-top: 30px;
     padding: 20px;
     background-color: #f0f8ff;
@@ -547,21 +548,21 @@ body {
     border-left: 4px solid #87ceeb;
 }
 
-.contact-info a { /* Fra Main_style.css for konsistens */
+.contact-info a { 
     color: #334d5c;
     text-decoration: none;
     font-weight: bold;
 }
 
-.contact-info a:hover { /* Fra Main_style.css for konsistens */
+.contact-info a:hover { 
     color: #87ceeb;
 }
 
-/* Back link (Fra jonas-about-page.html og Main_style.css) */
+/* Back link */
 .back-link {
     display: inline-block;
-    margin-top: 10px; /* satt til 10px fra jonas-about-page.html */
-    margin-bottom: 20px; /* Fra jonas-about-page.html */
+    margin-top: 10px; 
+    margin-bottom: 20px; 
     padding: 12px 24px;
     background-color: #87ceeb;
     color: white;
@@ -575,7 +576,7 @@ body {
     background-color: #4da6e6;
 }
 
-/* Footer stiler (Fra jonas-about-page.html og Main_style.css) */
+/* Footer stiler */
 .footer {
     background-color: rgba(68, 68, 68, 0.9);
     color: #f0f0f0;
@@ -616,7 +617,7 @@ body {
     .main-nav ul {
         margin-top: 15px;
         justify-content: center;
-        display: block; /* Fra jonas-about-page.html */
+        display: block; 
     }
 
     .header_links {
@@ -634,36 +635,37 @@ body {
     }
 
     .hover-list {
-        position: static;
+        display: none;
+        position: absolute; 
         width: 100%;
         min-width: 100%;
         margin-top: 0;
         box-shadow: none;
         border-radius: 0;
         flex-direction: column;
-        left: 0; /* Fra Main_style.css */
+        left: 0; 
     }
-
+    
     .hover-list button {
-        text-align: left; /* Fra jonas-about-page.html */
+        text-align: left; 
         padding: 10px 20px;
         display: block;
     }
 
-    .main-nav ul li { /* Fra Main_style.css */
+    .main-nav ul li { 
         margin: 0 10px;
     }
 
-    .col-6 { /* Fra Main_style.css */
+    .col-6 { 
         flex: 0 0 100%;
         max-width: 100%;
     }
 
-    .row { /* Fra Main_style.css */
+    .row { 
         margin-bottom: 10px;
     }
 
-    .card { /* Fra Main_style.css */
+    .card { 
         margin-bottom: 20px;
     }
 
@@ -686,363 +688,89 @@ body {
         font-size: 1.3em;
     }
 
-    .main-nav ul li { /* Fra Main_style.css */
+    .main-nav ul li { 
         margin: 0 5px;
     }
 
-    .card h2 { /* Fra Main_style.css */
+    .card h2 { 
         font-size: 1.5em;
     }
 
-    .activity-options { /* Fra Main_style.css */
+    .activity-options { 
         flex-direction: column;
     }
 
-    .activity-box { /* Fra Main_style.css */
+    .activity-box { 
         width: 80%;
         margin-bottom: 15px;
     }
 }
 
-/* --- STYLES MOVED FROM om oss.html (Appended to Main_style.css) --- */
+/* ------------------------------------------- */
+/* NYE STILER FOR SIRKULÆRT PROFILBILDE (EMIL) */
+/* ------------------------------------------- */
 
-        body {
-            font-family: 'Open Sans', sans-serif;
-            margin: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+/* Stiler for profilbildecontaineren - Gjør bildet sirkulært med kant */
+.profile-image-container {
+    position: relative; 
+    width: 250px; 
+    height: 250px; 
+    margin: 20px auto; 
+    border-radius: 50%; 
+    overflow: hidden; 
+    box-shadow: 0 0 0 5px rgba(135, 206, 235, 0.4); 
+    transition: box-shadow 0.3s ease-in-out; 
+}
 
-        .rain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        .rain span {
-            position: absolute;
-            background: #a0d4ef;
-            opacity: 0.6;
-            animation: fall linear infinite;
-        }
+/* Overstyrer den generelle .profile-container img for å fylle den sirkulære containeren */
+.profile-container img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    border-radius: 50%; /* Nå er det 50% for å sikre at det er en sirkel */
+    display: block;
+    margin: 0; /* Fjerner marginen for å fylle containeren */
+    box-shadow: none;
+}
 
-        @keyframes fall {
-            0% {
-                transform: translateY(-100vh);
-            }
-            100% {
-                transform: translateY(100vh);
-            }
-        }
+.profile-image-container:hover {
+    box-shadow: 0 0 0 8px rgba(135, 206, 235, 0.7); 
+}
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 0;
-            position: relative;
-            z-index: 1;
-        }
+/* Stil for en "pulsende" kant rundt profilbildet */
+.profile-image-container::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    animation: pulseBorder 2s infinite ease-in-out; 
+    pointer-events: none; 
+    z-index: 1; 
+}
 
-        .header {
-            background-color: rgba(51, 77, 92, 0.9);
-            color: #fff;
-            padding: 15px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
+/* Nøkkelrammer for animasjonen pulseBorder */
+@keyframes pulseBorder {
+    0% {
+        border-color: rgba(135, 206, 235, 0.4); 
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        border-color: rgba(77, 166, 230, 0.8); 
+        transform: scale(1.03);
+        opacity: 0.7;
+    }
+    100% {
+        border-color: rgba(135, 206, 235, 0.4); 
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5em;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo i {
-            margin-right: 10px;
-            color: #87ceeb;
-        }
-
-        .main-nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .header_links {
-            display: flex;
-            align-items: center;
-            height: 100%;
-        }
-
-        .header_links a {
-            text-decoration: none;
-            color: inherit;
-            display: inline-block;
-        }
-
-        .header_links button {
-            background: none;
-            border: none;
-            color: #fff;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1em;
-            font-weight: 600;
-            padding: 10px 15px;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .header_links button:hover {
-            color: #87ceeb;
-        }
-
-        /* DROPDOWN - HORISONTALT */
-        .hover-container {
-            position: relative;
-            display: inline-block;
-            height: 100%;
-        }
-
-        .hover-trigger {
-            color: #fff;
-            font-weight: 600;
-            padding: 10px 15px;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            white-space: nowrap;
-            background: none;
-            border: none;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1em;
-            display: block; 
-        }
-
-        .hover-trigger:hover {
-            color: #87ceeb;
-        }
-
-        .hover-list {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: rgba(51, 77, 92, 0.95);
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 10;
-            border-radius: 0 0 5px 5px;
-            overflow: hidden;
-            margin-top: 0;
-            flex-direction: row;
-            display: none;
-        }
-
-        .hover-list button {
-            background: none;
-            border: none;
-            color: #fff;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1em;
-            font-weight: 600;
-            box-sizing: border-box; 
-            white-space: nowrap;
-        }
-
-        .hover-list button:hover {
-            background-color: #334d5c;
-            color: #87ceeb;
-        }
-
-        .hover-container:hover .hover-list {
-            display: flex;
-        }
-
-
-        .main-content {
-            padding-top: 30px;
-            padding-bottom: 30px;
-        }
-
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-
-        .col-6, .col-12 {
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .col-6 {
-            flex: 0 0 50%;
-            max-width: 50%;
-        }
-
-        .col-12 {
-            flex: 0 0 100%;
-            max-width: 100%;
-        }
-
-        .card {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            padding: 25px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card h2 {
-            color: #334d5c;
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 1.8em;
-        }
-
-        .card h3 {
-            color: #334d5c;
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 1.3em;
-        }
-        
-        .read-more-link { 
-            background-color: #87ceeb;
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-align: center;
-            margin-top: 15px;
-            display: inline-block;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
-        
-        .read-more-link:hover {
-            background-color: #4da6e6;
-        }
-        
-        .footer {
-            background-color: rgba(68, 68, 68, 0.9);
-            color: #f0f0f0;
-            padding: 30px 0;
-            margin-top: 30px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .footer-col {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .footer-col h3 {
-            color: #87ceeb;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-
-        .footer-col p {
-            font-size: 0.9em;
-            line-height: 1.8;
-        }
-
-        /* Responsivitet */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .main-nav ul {
-                margin-top: 15px;
-                justify-content: center;
-                display: block;
-            }
-
-            .header_links {
-                flex-direction: column;
-            }
-            
-            .header_links button,
-            .hover-trigger,
-            .hover-container {
-                display: block;
-                width: 100%;
-                text-align: center;
-                padding: 10px 0;
-                box-sizing: border-box;
-            }
-
-            .hover-list {
-                position: static;
-                width: 100%;
-                min-width: 100%; 
-                margin-top: 0;
-                box-shadow: none;
-                border-radius: 0;
-                flex-direction: column;
-                display: none;
-            }
-            
-            .hover-list button {
-                text-align: left;
-                padding: 10px 20px;
-                display: block;
-            }
-
-            .col-6 {
-                flex: 0 0 100%;
-                max-width: 100%;
-            }
-
-            .row {
-                margin-bottom: 10px;
-            }
-
-            .card {
-                margin-bottom: 20px;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 1.3em;
-            }
-
-            .card h2 {
-                font-size: 1.5em;
-            }
-        }
+/* ------------------------------------------- */
+/* NYE STILER SLUTT */
+/* ------------------------------------------- */
