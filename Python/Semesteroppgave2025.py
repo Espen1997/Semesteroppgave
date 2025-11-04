@@ -84,7 +84,7 @@ fig = plt.figure(figsize=(10, 4))
 axGraph = fig.add_axes((0.05, 0.07, 0.35, 0.85))
 axMap = fig.add_axes((0.41, 0.07, 0.59, 0.85))
 draw_label_and_ticks()
-img = mpimg.imread('Kart_over_Bergen.png')
+img = mpimg.imread('Python/Kart_over_Bergen.png')
 axMap.set_title("Årsnedbør Stor Bergen")
 axGraph.set_title("Per måned")
 axMap.axis('off')
@@ -93,7 +93,7 @@ fig.subplots_adjust(left=0, right=1, top=1, bottom=0) # Adjust the figure to fit
 axMap.margins(x=0.01, y=0.01)  # Adjust x and y margins
 
 # Read rain data, and split in train and test.py data
-df = pd.read_csv('NedborX.csv')
+df = pd.read_csv('Python/NedborX.csv')
 marked_point = (0,0)
 ns = df['Nedbor']
 X = df.drop('Nedbor',  axis=1)
