@@ -9,346 +9,12 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
-            margin: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .rain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        .rain span {
-            position: absolute;
-            background: #a0d4ef;
-            opacity: 0.6;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-100vh);
-            }
-            100% {
-                transform: translateY(100vh);
-            }
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        .header {
-            background-color: rgba(51, 77, 92, 0.9);
-            color: #fff;
-            padding: 15px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5em;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo i {
-            margin-right: 10px;
-            color: #87ceeb;
-        }
-
-        /* Navigasjon Stiler */
-        .main-nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .header_links {
-            display: flex;
-            align-items: center;
-            height: 100%;
-        }
-
-        .header_links a {
-            text-decoration: none;
-            color: inherit;
-            display: inline-block;
-        }
-
-        .header_links button {
-            background: none;
-            border: none;
-            color: #fff;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1em;
-            font-weight: 600;
-            padding: 10px 15px;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            white-space: nowrap; /* Hindrer linjeskift */
-        }
-
-        .header_links button:hover {
-            color: #87ceeb;
-        }
-
-        /* Hover-meny for Prosjekter */
-        .hover-container {
-            position: relative;
-            display: inline-block;
-            height: 100%;
-            display: flex;
-            align-items: center;
-        }
-
-        .hover-trigger {
-            color: #fff;
-            font-weight: 600;
-            padding: 10px 15px;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .hover-trigger:hover {
-            color: #87ceeb;
-        }
-
-        .hover-list {
-            display: none;
-            position: absolute;
-            background-color: rgba(51, 77, 92, 0.95);
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 10;
-            top: 100%;
-            left: 0;
-            border-radius: 5px;
-            overflow: hidden;
-            margin-top: 5px; /* Litt avstand fra Prosjekter */
-        }
-
-        .hover-list button {
-            color: #fff;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            width: 100%;
-            text-align: left;
-            background: none;
-            border: none;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .hover-list button:hover {
-            background-color: #555;
-            color: #87ceeb;
-        }
-
-        .hover-container:hover .hover-list {
-            display: block;
-        }
-
-        /* Slutt på Navigasjon Stiler */
-
-
-        .main-content {
-            padding-top: 30px;
-            padding-bottom: 30px;
-        }
-
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-
-        .col-6, .col-12 {
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .col-6 {
-            flex: 0 0 50%;
-            max-width: 50%;
-        }
-
-        .col-12 {
-            flex: 0 0 100%;
-            max-width: 100%;
-        }
-
-        .card {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            padding: 25px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card h2 {
-            color: #334d5c;
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 1.8em;
-        }
-
-        .card h3 {
-            color: #334d5c;
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 1.3em;
-        }
-        
-        .read-more-link {
-            background-color: #87ceeb;
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-align: center;
-            margin-top: 15px;
-            display: inline-block;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
-        
-        .read-more-link:hover {
-            background-color: #4da6e6;
-        }
-        
-        .footer {
-            background-color: rgba(68, 68, 68, 0.9);
-            color: #f0f0f0;
-            padding: 30px 0;
-            margin-top: 30px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .footer-col {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .footer-col h3 {
-            color: #87ceeb;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-
-        .footer-col p {
-            font-size: 0.9em;
-            line-height: 1.8;
-        }
-
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .main-nav ul {
-                margin-top: 15px;
-                justify-content: center;
-                display: block; /* Lar lenkene stables for mobil */
-            }
-
-            .header_links {
-                flex-direction: column;
-            }
-            
-            .header_links button,
-            .hover-trigger,
-            .hover-container {
-                display: block; /* Får hvert menyelement til å ta full bredde på mobil */
-                width: 100%;
-                text-align: center;
-                padding: 10px 0;
-                box-sizing: border-box;
-            }
-
-            .hover-list {
-                position: static; /* Viser dropdown under på mobil */
-                width: 100%;
-                margin-top: 0;
-                box-shadow: none;
-                border-radius: 0;
-            }
-            
-            .hover-list button {
-                text-align: center;
-                padding: 10px;
-            }
-
-            .col-6 {
-                flex: 0 0 100%;
-                max-width: 100%;
-            }
-
-            .row {
-                margin-bottom: 10px;
-            }
-
-            .card {
-                margin-bottom: 20px;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 1.3em;
-            }
-
-            .card h2 {
-                font-size: 1.5em;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="Main_style.css"> 
 </head>
 <body>
 
     <div class="rain"></div>
-
-    <header class="header">
+<header class="header">
         <div class="container header-content">
             <div class="logo">
                 <i class="fas fa-cloud-rain"></i> Regnbyen Bergen A/S
@@ -357,17 +23,17 @@
                 <ul>
                     <div class="header_links">
                     <a href="bergenregn-index.html">
-                    <button>Hjem</button></a>
+					<button>Hjem</button></a>
                     <div class="hover-container">
-                        <div class="hover-trigger">Prosjekter</div>
-                        <div class="hover-list">
-                            <button onclick="location.href='BRH-3.html'">Vedlikehold</button>
-                            <button onclick="location.href='BRH-5.html'">Aktiviteter</button>
-                            <button onclick="location.href='BRH-6.html'">Statestikk</button>
-                        </div>
-                    </div>
-                    <a href="OMOSS.html"><button>Om oss</button></a>
-                    </div>
+						<div class="hover-trigger">Prosjekter</div>
+						<div class="hover-list">
+							<button onclick="location.href='BRH-3.html'">Vedlikehold</button>
+							<button onclick="location.href='BRH-5.html'">Aktiviteter</button>
+							<button onclick="location.href='BRH-6.html'">Statestikk</button>
+						</div>
+					</div>
+                    <a href="om oss.html"><button>Om oss</button></a>
+                    <div class="header_links">
                 </ul>
             </nav>
         </div>
@@ -435,7 +101,7 @@
                     <article>
                         <h3>Gard</h3>
                         <p><strong>Ansvar:</strong> Hus spesialist i Regnbyen A/S</p>
-                        <p>21 år fra Som. Elsker å jobbe med hus og hjelpe mennesker.</p>
+                        <p>22 år fra Som. Elsker å jobbe med hus og hjelpe mennesker.</p>
                         <a href="om-meg-Gard.html" class="read-more-link">Les mer om Gard</a>
                     </article>
                 </div>

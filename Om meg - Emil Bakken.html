@@ -4,65 +4,178 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Om Meg - Emil Bakken</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Main_style.css"> 
 </head>
 <body>
 
-    <h1>Emil Bakken - Kort fortalt</h1>
+    <div class="rain"></div>
+
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-cloud-rain"></i> Regnbyen Bergen A/S
+            </div>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        
+        <div class="profile-container">
+            
+            <p style="text-align: center;">
+                <a href="om oss.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i> Tilbake til Om oss
+                </a>
+            </p>
+
+            <h1>Emil Bakken - Kort fortalt</h1>
+            
+            <div class="profile-image-container" id="emil-profile-image-container">
+                <img src="Bilder/emilbilde.jpg" alt="Profilbilde">
+            </div>
+        
+            <h2>🤔 Hvem er jeg?</h2>
+            <p>
+                Hei! Jeg er Emil, en 21 år gammel student ved HVL i Bergen, opprinnelig fra Stavanger. 
+                Jeg trives svært godt på treningssenteret, og bruker store deler av tiden min på det og 
+                kosthold / mealprepping. Er også prosjektmedlem i Regnbyen Bergen A/S.
+            </p>
+
+            <details>
+                <summary><strong>Klikk for en fun fact om meg!</strong></summary>
+                <p>Elsker isbading🧊</p>
+            </details>
+
+            <hr>
+
+            <h2>💻 Mine Kjerneinteresser</h2>
+            
+            <dl>
+                <dt><strong>Pentesting</strong></dt>
+                <dd>
+                    Pentesting, eller penetrasjonstesting, handler om å lovlig prøve å bryte seg inn 
+                    i datasystemer og nettverk. Tenk på det som å være en "etisk hacker".
+                </dd>
+
+                <dt><strong>Isbading</strong></dt>
+                <dd>
+                    Et kaldt isbad midt på vinteren gjør susen.
+                </dd>
+
+                <dt><strong>Bilturer og Camping</strong></dt>
+                <dd>
+                    Å pakke bilen og dra ut i naturen langs Vestlandskysten er den ultimate avslapningen. 
+                    Jeg jakter alltid på det perfekte stedet å sette opp teltet.
+                </dd>
+            </dl>
+            
+            <hr>
+            
+            <h2>Jobben min</h2>
+            <p>
+                Jeg er ansvarlig for kundeservice i Regnbyen Bergen A/S
+            </p>
+
+            <div class="contact-info">
+                <h2>📧 Kontaktinformasjon</h2>
+                <p>
+                    Har du et prosjekt, eller vil du bare snakke om pentesting/trening? Send meg en melding!
+                </p>
+                
+                <p>
+                    <strong>E-post:</strong> <a href="mailto:bi@outelook.com">bi@outelook.com</a> <br>
+                    <strong>Instagram:</strong> <a href="https://www.instagram.com/emil.l.b" target="_blank">@emil.l.b</a>
+                </p>
+            </div>
+        </div>
+    </main>
     
-    <img src="emilbilde.jpg" alt="Profilbilde" width="250">
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>Informasjon</h3>
+                <p>Regnbyen Bergen A/S har siden 2025 vært din pålitelige partner for all informasjon om vedlikehold og bolighold i Bergen. Vi hjelper deg med å holde hjemmet ditt i perfekt stand.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Kontakt</h3>
+                <p>Har du spørsmål eller forslag? Kontakt oss gjerne! Din tilbakemelding hjelper oss med å forbedre tjenestene våre.<br><br>
+                E-post: kontakt@hvl.bergen.no<br>
+                Telefon: +47 55 58 70 00<br>
+                Adresse:<br>
+                Inndalsveien 28<br>
+                5063 Bergen.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Om oss</h3>
+                <p>Regnbyen Bergen A/S er et lokalt selskap etablert i 2025 som brenner for å hjelpe bergensere med å ta vare på hjemmene sine. Vårt mål er å gjøre vedlikehold enkelt og tilgjengelig for alle.</p>
+            </div>
+        </div>
+    </footer>
 
-    <h2>🤔 Hvem er jeg?</h2>
-    <p>
-        Hei! Jeg er Emil, en 21 år gammel student ved HVL i Bergen, opprinnelig fra Stavanger. 
-        Jeg trives svært godt på treningssenteret, og bruker store deler av tiden min på det og 
-        kosthold / mealprepping. Er også prosjektmedlem i Regnbyen Bergen A/S.
-    </p>
+    <script>
+        // Eksisterende regneffekt for bakgrunn (fra de andre sidene)
+        const rainContainer = document.querySelector('.rain');
+        function createRaindrop() {
+            const drop = document.createElement('span');
+            drop.style.width = Math.random() * 3 + 'px';
+            drop.style.height = Math.random() * 10 + 20 + 'px';
+            drop.style.left = Math.random() * 100 + 'vw';
+            drop.style.animationDuration = Math.random() * 2 + 3 + 's';
+            drop.style.animationDelay = Math.random() * 5 + 's';
+            drop.style.opacity = Math.random() * 0.4 + 0.2;
+            drop.style.background = '#a0d4ef'; 
+            rainContainer.appendChild(drop);
+            setTimeout(() => { drop.remove(); }, (Math.random() * 2 + 3) * 1000); 
+        }
+        for (let i = 0; i < 50; i++) { createRaindrop(); }
+        setInterval(createRaindrop, 100); 
 
-    <details>
-        <summary><strong>Klikk for en fun fact om meg!</strong></summary>
-        <p>Elsker isbading🧊</p>
-    </details>
+        // NYTT: Regndråpe-effekt for profilbildet
+        const profileImageContainer = document.getElementById('emil-profile-image-container');
 
-    <hr>
+        function createProfileRaindrop() {
+            const drop = document.createElement('span');
+            drop.style.position = 'absolute';
+            drop.style.background = 'rgba(135, 206, 235, 0.7)'; 
+            drop.style.width = Math.random() * 1 + 1 + 'px'; 
+            drop.style.height = Math.random() * 8 + 5 + 'px';
+            drop.style.left = Math.random() * 90 + 5 + '%'; 
+            drop.style.top = '-10%'; 
+            drop.style.animation = `profileFall ${Math.random() * 1.5 + 1.5}s linear forwards`; 
+            drop.style.opacity = Math.random() * 0.6 + 0.4;
+            drop.style.borderRadius = '50%'; 
 
-    <h2>💻 Mine Kjerneinteresser</h2>
-    
-    <dl>
-        <dt><strong>Pentesting</strong></dt>
-        <dd>
-            Pentesting, eller penetrasjonstesting, handler om å lovlig prøve å bryte seg inn 
-            i datasystemer og nettverk. Tenk på det som å være en "etisk hacker".
-        </dd>
+            profileImageContainer.appendChild(drop);
 
-        <dt><strong>Isbading</strong></dt>
-        <dd>
-            Et kaldt isbad midt på vinteren gjør susen.
-        </dd>
+            drop.addEventListener('animationend', () => {
+                drop.remove();
+            });
+        }
 
-        <dt><strong>Bilturer og Camping</strong></dt>
-        <dd>
-            Å pakke bilen og dra ut i naturen langs Vestlandskysten er den ultimate avslapningen. 
-            Jeg jakter alltid på det perfekte stedet å sette opp teltet.
-        </dd>
-    </dl>
-    
-    <hr>
-    
-    <h2>Jobben min</h2>
-    <p>
-        Jeg er ansvarlig for kundeservice i Regnbyen Bergen A/S
-    </p>
+        // Legg til CSS for den nye animasjonen dynamisk
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes profileFall {
+                0% {
+                    transform: translateY(0) scale(1);
+                    opacity: 0.8;
+                }
+                80% {
+                    opacity: 0.2;
+                }
+                100% {
+                    transform: translateY(110%) scale(0.5); 
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
 
-    <h2>📧 Kontaktinformasjon</h2>
-    <p>
-        Har du et prosjekt, eller vil du bare snakke om pentesting/trening? Send meg en melding!
-    </p>
-    
-    <p>
-        <strong>E-post:</strong> bi@outelook.com <br>
-        <strong>Instagram:</strong> @emil.l.b
-    </p>
-
+        // Generer regndråper over bildet
+        setInterval(createProfileRaindrop, 200);
+    </script>
 </body>
-
 </html>

@@ -4,301 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Værstatistikk og Fritid - Regnbyen Bergen A/S</title>
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="Main_style.css"> 
     
-    <link rel="stylesheet" href="Main_style.css">
-    <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
-            margin: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .rain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        .rain span {
-            position: absolute;
-            background: #a0d4ef;
-            opacity: 0.6;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-100vh);
-            }
-            100% {
-                transform: translateY(100vh);
-            }
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        .header {
-            background-color: rgba(51, 77, 92, 0.9);
-            color: #fff;
-            padding: 15px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5em;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo i {
-            margin-right: 10px;
-            color: #87ceeb;
-        }
-
-        .main-nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        .main-nav ul li {
-            margin-left: 25px;
-        }
-
-        .main-nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .main-nav ul li a:hover {
-            color: #87ceeb;
-        }
-
-        .main-content {
-            padding-top: 30px;
-            padding-bottom: 30px;
-        }
-
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-
-        .col-6, .col-12 {
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .col-6 {
-            flex: 0 0 50%;
-            max-width: 50%;
-        }
-
-        .col-12 {
-            flex: 0 0 100%;
-            max-width: 100%;
-        }
-
-        .card {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            padding: 25px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card h2 {
-            color: #334d5c;
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 1.8em;
-        }
-
-        .activity-options {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-            flex-grow: 1;
-            align-items: center;
-        }
-
-        .activity-box {
-            text-align: center;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            width: 45%;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .activity-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        }
-
-        .activity-box i {
-            font-size: 3em;
-            color: #5cb85c;
-            margin-bottom: 10px;
-        }
-
-        .activity-box p {
-            margin: 0;
-            font-weight: 600;
-            color: #555;
-        }
-
-        .image-placeholder {
-            background-color: #e6f2f9;
-            border: 1px dashed #a0d4ef;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 200px;
-            text-align: center;
-            color: #4da6e6;
-            flex-grow: 1;
-        }
-
-        .image-placeholder p {
-            margin-top: 15px;
-            font-size: 1.2em;
-            font-weight: 600;
-        }
-
-        .card-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-            margin-top: 15px;
-            margin-bottom: 5px;
-        }
-
-        .image-caption {
-            font-size: 0.9em;
-            color: #777;
-            text-align: center;
-        }
-
-        .footer {
-            background-color: rgba(68, 68, 68, 0.9);
-            color: #f0f0f0;
-            padding: 30px 0;
-            margin-top: 30px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .footer-col {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .footer-col h3 {
-            color: #87ceeb;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-
-        .footer-col p {
-            font-size: 0.9em;
-            line-height: 1.8;
-        }
-
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .main-nav ul {
-                margin-top: 15px;
-                justify-content: center;
-            }
-
-            .main-nav ul li {
-                margin: 0 10px;
-            }
-
-            .col-6 {
-                flex: 0 0 100%;
-                max-width: 100%;
-            }
-
-            .row {
-                margin-bottom: 10px;
-            }
-
-            .card {
-                margin-bottom: 20px;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 1.3em;
-            }
-
-            .main-nav ul li {
-                margin: 0 5px;
-            }
-
-            .card h2 {
-                font-size: 1.5em;
-            }
-
-            .activity-options {
-                flex-direction: column;
-            }
-
-            .activity-box {
-                width: 80%;
-                margin-bottom: 15px;
-            }
-        }
-    </style>
 </head>
 <body>
 
@@ -312,18 +24,18 @@
             <nav class="main-nav">
                 <ul>
                     <div class="header_links">
-                    <a href="bergenregn-index.html">
-					<button>Hjem</button></a>
-                    <div class="hover-container">
-						<div class="hover-trigger">Prosjekter</div>
-						<div class="hover-list">
-							<button onclick="location.href='BRH-3.html'">Vedlikehold</button>
-							<button onclick="location.href='BRH-5.html'">Aktiviteter</button>
-							<button onclick="location.href='BRH-6.html'">Statestikk</button>
-						</div>
-					</div>
-                    <a href="om oss.html"><button>Om oss</button></a>
-                    <div class="header_links">
+                        <a href="bergenregn-index.html">
+                            <button>Hjem</button></a>
+                        <div class="hover-container">
+                            <div class="hover-trigger">Prosjekter</div>
+                            <div class="hover-list">
+                                <button onclick="location.href='BRH-3.html'">Vedlikehold</button>
+                                <button onclick="location.href='BRH-5.html'">Aktiviteter</button>
+                                <button onclick="location.href='BRH-6.html'">Statestikk</button>
+                            </div>
+                        </div>
+                        <a href="om oss.html"><button>Om oss</button></a>
+                    </div>
                 </ul>
             </nav>
         </div>
@@ -333,8 +45,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <h1>Slik utnytter du de tørre dagene</h1>
-                    <p>Sommeren i Bergen kan by på både sol og regn, og det er viktig å være klar over statistikken for å planlegge. De *tørre* dagene er perfekte for å utforske fjordene og drive med friluftsliv. Her er en oversikt over værstatistikk og tips for hvordan du får mest ut av de soldagene som kommer.</p>
+                    <h1>Værstatistikk og fritidsaktiviteter i Bergen</h1>
+                    <p>Bergen er kjent som "Byen mellom de syv fjell" og "Regnbyen". Ved å se på statistikken og vite hvilke aktiviteter som passer best til de forskjellige månedene, kan du planlegge fritiden din best mulig.</p>
                 </div>
             </div>
         </div>
@@ -342,83 +54,69 @@
         <div class="row">
             <div class="col-6">
                 <div class="card">
-                    <h2>Statistikk for sommerregn i Bergen</h2>
-                    <div>
-                        <p>Mens Bergen er kjent for sitt regn, er det viktig å se på fakta. Ifølge historiske data, er det som regel flere soldager enn du tror.</p>
-                        <ul>
-                            <li>**Juni**:
-                                <ul>
-                                    <li>Gjennomsnittlig antall dager med nedbør: 18</li>
-                                    <li>Gjennomsnittlig antall dager med sol: 12</li>
-                                </ul>
-                            </li>
-                            <li>**Juli**:
-                                <ul>
-                                    <li>Gjennomsnittlig antall dager med nedbør: 16</li>
-                                    <li>Gjennomsnittlig antall dager med sol: 15</li>
-                                </ul>
-                            </li>
-                            <li>**August**:
-                                <ul>
-                                    <li>Gjennomsnittlig antall dager med nedbør: 19</li>
-                                    <li>Gjennomsnittlig antall dager med sol: 12</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="card">
-                    <figure>
-                        <img src="https://cdn.discordapp.com/attachments/743090532854530130/1427618451471728762/Paragliding-i-Bergen.jpg?ex=68ef84ca&is=68ee334a&hm=4a765fd5fcf40e38cfc636369c77fc6b151020970fcff21d9dbb66956749bb30" alt="En som nyter solværet i Bergen." class="card-image">
-                        <figcaption class="image-caption">Soldagene i Bergen er nydelige!</figcaption>
+                    <h2>Gjennomsnittlig nedbør pr. måned</h2>
+                    <figure class="chart-placeholder">
+                        <i class="fas fa-chart-bar" style="font-size: 5em; color: #007bff;"></i>
+                        <p>Plassholder for nedbørstatistikk (Millimeter)</p>
                     </figure>
-                </div>  
+                </div>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12">
+            <div class="col-6">
                 <div class="card">
-                    <h2>Fisking og båtturer i Bergens skjærgård</h2>
-                    <p>Når solen titter frem, finnes det ingen bedre måte å tilbringe dagen på enn med båt eller fiskestang. Her er noen tips:</p>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Aktivitet</th>
-                                <th>Anbefalt sted</th>
-                                <th>Tips</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Fisking fra land</td>
-                                <td>Askøy eller Sotra</td>
-                                <td>Sjekk tidevannet for best fangst.</td>
-                            </tr>
-                            <tr>
-                                <td>Båttur</td>
-                                <td>Osterfjorden</td>
-                                <td>Leie båt krever båtførerbevis.</td>
-                            </tr>
-                            <tr>
-                                <td>Dra ut på holme</td>
-                                <td>Skjærgården ved Hjellestad</td>
-                                <td>Ta med grill og mat.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <h2>Temperatur og soltimer</h2>
+                    <figure class="chart-placeholder">
+                        <i class="fas fa-sun" style="font-size: 5em; color: #ffc107;"></i>
+                        <p>Plassholder for temperatur og soltimer</p>
+                    </figure>
                 </div>
             </div>
         </div>
 
         <div class="row">
             <div class="col-12">
-                <div class="card" style="background-color: #f0f8ff; border: 1px solid #d0e0ff;">
-                    <h2>Annonse: Finn din perfekte tur i Bergensområde</h2>
-                    <p>Hos ut.no finner du alt du trenger for en vellykket tur. Perfekt for familier, nybegynnere og erfarne turgåere. Utforsk alt fra enkle søndagsturer til lengre fjellturer, med gode tips for en trygg og fin opplevelse.. <em>.</em></p>
-                    <a href="https://ut.no/utforsker/omrade/1240/bergen/turforslag" class="activity-box" style="background-color: #87ceeb; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; text-align: center; margin-top: 15px;">Se vårt utvalg her!</a>
+                <div class="card activity-accordion">
+                    <h2>Aktivitetsguide etter sesong</h2>
+                    
+                    <div class="activity-group" data-activity="winter">
+                        <div class="activity-header">
+                            <i class="fas fa-snowflake"></i> Vinter (Desember - Februar)
+                        </div>
+                        <div class="activity-details">
+                            <p class="detail-description">Mørketid og mye nedbør. Perfekt for innendørs kultur og koselige aktiviteter.</p>
+                            <p class="detail-tip"><strong>Ekstra tips:</strong> Besøk en av byens mange puber med levende musikk eller ta Fløibanen opp for å se julelysene over byen.</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-group" data-activity="spring">
+                        <div class="activity-header">
+                            <i class="fas fa-cloud-sun"></i> Vår (Mars - Mai)
+                        </div>
+                        <div class="activity-details">
+                            <p class="detail-description">Gradvis økning i soltimer, men fortsatt ustabilt vær. Våren er tiden for å starte hagearbeid og vedlikehold før sommeren.</p>
+                            <p class="detail-tip"><strong>Ekstra tips:</strong> Begynn med fasadevask og sjekk takrenner. Ta en tur til Arboretet når blomstringen starter.</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-group" data-activity="summer">
+                        <div class="activity-header">
+                            <i class="fas fa-umbrella-beach"></i> Sommer (Juni - August)
+                        </div>
+                        <div class="activity-details">
+                            <p class="detail-description">Minst nedbør og høyest temperatur. Perfekt for fjellturer, bading og utendørsarrangementer.</p>
+                            <p class="detail-tip"><strong>Ekstra tips:</strong> Utforsk Vidden-turen eller dra på båttur i skjærgården rundt Bergen.</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-group" data-activity="autumn">
+                        <div class="activity-header">
+                            <i class="fas fa-cloud-showers-heavy"></i> Høst (September - November)
+                        </div>
+                        <div class="activity-details">
+                            <p class="detail-description">Mest nedbør. Fjellene får flotte farger. Gode dager for museumsbesøk og innekos.</p>
+                            <p class="detail-tip"><strong>Ekstra tips:</strong> Sjekk drenering og tøm takrennene før de verste regnskyllene kommer. Gå tur på Løvstakken for utsikt over høstfargene.</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -427,8 +125,8 @@
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-col">
-                <h3>Informasjon</h3>
-                <p>Regnbyen Bergen A/S har siden 2025 vært din pålitelige kilde til værstatistikk og fritidsaktiviteter i Bergen. Vi hjelper deg med å planlegge perfekte utendørs opplevelser basert på lokale værforhold.</p>
+                <h3>Oppdraget</h3>
+                <p>Regnbyen Bergen A/S sitt oppdrag er å gi bergensere og besøkende inspirasjon og informasjon. Vi hjelper deg med å finne de beste mulighetene byen har å by på, i all slags vær.</p>
             </div>
             <div class="footer-col">
                 <h3>Kontakt</h3>
@@ -441,29 +139,97 @@ Inndalsveien 28<br>
             </div>
             <div class="footer-col">
                 <h3>Om oss</h3>
-                <p>Vi er et lokalt selskap etablert i 2025 som brenner for å hjelpe bergensere med å få mest mulig ut av naturen rundt byen. Vårt mål er å gjøre friluftsliv tilgjengelig for alle, uansett været.</p>
+                <p>Vi er et lokalt selskap etablert i 2025 som brenner for å vise frem alt det fantastiske Bergen har å tilby. Vårt mål er å inspirere bergensere og besøkende til å leve aktivt og oppleve byen fullt ut.</p>
             </div>
         </div>
     </footer>
 
     <script>
         const rainContainer = document.querySelector('.rain');
+        
+        // Data for aktivitetsguidene
+        const activityData = {
+            winter: {
+                description: 'Mørketid og mye nedbør. Perfekt for innendørs kultur og koselige aktiviteter.',
+                tip: 'Besøk en av byens mange puber med levende musikk eller ta Fløibanen opp for å se julelysene over byen.'
+            },
+            spring: {
+                description: 'Gradvis økning i soltimer, men fortsatt ustabilt vær. Våren er tiden for å starte hagearbeid og vedlikehold før sommeren.',
+                tip: 'Begynn med fasadevask og sjekk takrenner. Ta en tur til Arboretet når blomstringen starter.'
+            },
+            summer: {
+                description: 'Minst nedbør og høyest temperatur. Perfekt for fjellturer, bading og utendørsarrangementer.',
+                tip: 'Utforsk Vidden-turen eller dra på båttur i skjærgården rundt Bergen.'
+            },
+            autumn: {
+                description: 'Mest nedbør. Fjellene får flotte farger. Gode dager for museumsbesøk og innekos.',
+                tip: 'Sjekk drenering og tøm takrennene før de verste regnskyllene kommer. Gå tur på Løvstakken for utsikt over høstfargene.'
+            }
+        };
 
+        // JavaScript for regndråper
         function createRaindrop() {
             const drop = document.createElement('span');
             drop.style.width = Math.random() * 3 + 'px';
             drop.style.height = Math.random() * 10 + 20 + 'px';
             drop.style.left = Math.random() * 100 + 'vw';
-            drop.style.animationDuration = Math.random() * 0.5 + 0.5 + 's';
-            
+            drop.style.animationDuration = Math.random() * 2 + 3 + 's';
+            drop.style.animationDelay = Math.random() * 5 + 's';
+            drop.style.opacity = Math.random() * 0.4 + 0.2;
+            drop.style.background = '#a0d4ef'; 
+
             rainContainer.appendChild(drop);
 
-            drop.addEventListener('animationend', () => {
+            setTimeout(() => {
                 drop.remove();
-            });
+            }, (Math.random() * 2 + 3) * 1000); 
         }
 
-        setInterval(createRaindrop, 150);
+        for (let i = 0; i < 50; i++) {
+            createRaindrop();
+        }
+
+        setInterval(createRaindrop, 100); 
+
+
+        // JavaScript for Accordion-funksjonalitet
+        const activityGroups = document.querySelectorAll('.activity-group');
+
+        activityGroups.forEach(group => {
+            const header = group.querySelector('.activity-header');
+            const detailsBox = group.querySelector('.activity-details');
+            const descriptionElement = group.querySelector('.detail-description');
+            const tipElement = group.querySelector('.detail-tip');
+            const activityKey = group.getAttribute('data-activity');
+            const data = activityData[activityKey];
+            
+            // Populate content initially (since we no longer have a single detail box)
+            if (data) {
+                descriptionElement.textContent = data.description;
+                tipElement.innerHTML = `<strong>Ekstra tips:</strong> ${data.tip}`;
+            }
+
+            header.addEventListener('click', () => {
+                const isActive = group.classList.contains('active');
+
+                // 1. Close all other groups (Accordion behavior)
+                activityGroups.forEach(otherGroup => {
+                    if (otherGroup !== group) {
+                        otherGroup.classList.remove('active');
+                        otherGroup.querySelector('.activity-details').classList.remove('show');
+                    }
+                });
+
+                // 2. Toggle the clicked group
+                if (isActive) {
+                    group.classList.remove('active');
+                    detailsBox.classList.remove('show');
+                } else {
+                    group.classList.add('active');
+                    detailsBox.classList.add('show');
+                }
+            });
+        });
     </script>
 
 </body>
