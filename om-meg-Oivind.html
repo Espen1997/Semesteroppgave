@@ -1,30 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Template</title>
-    <link rel="stylesheet" href="Main_style.css">
-    <style>
-        /* Basic CSS for the template */
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        .container { width: 80%; margin: 0 auto; padding: 20px; }
-        header { background-color: #f0f0f0; padding: 10px; text-align: center; }
-        footer { background-color: #f0f0f0; padding: 10px; text-align: center; margin-top: 20px; }
-    </style>
+    <title>Om Meg - Øivind</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="Main_style.css"> 
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>Øivind</h1>
-        </header>
-        <main>
-            <img src="Bilder/Oivind.jpg" width="200px"></img>
-           
-        </main>
-        <footer>
+
+    <div class="rain"></div>
+
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-cloud-rain"></i> Regnbyen Bergen A/S
+            </div>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        
+        <div class="profile-container">
+            <p style="text-align: center;">
+                <a href="om oss.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i> Tilbake til Om oss
+                </a>
+            </p>
+            <h1>Øivind, Klesansvarlig</h1>
             
-        </footer>
-    </div>
+            <img src="Bilder/Oivind.jpg" alt="Profilbilde" width="250">
+            
+            <h2>Hvem er jeg?</h2>
+            <p>
+               Hei jeg heter Øivind og er klesansvarlig i Regnbyen AS. Jeg er over normalt interessert i idrett, for det meste sykling og fotball. Er også ganske interessert i digitale greier. Født, oppvokst og bor i Bergen vest. 
+            </p>
+            
+            <h2>Mine arbeidsoppgaver i Regnbyen AS</h2>
+            <ul>
+                <li><b>Lage orginale designkonsepter for regnvær.</b></li>
+                <p style="font-size: 14px;">Regntøy, bøttehatter støvler ++. For kunder og ansatte av Regnbyen AS</p>
+                <li><b>Passe på at alle i Regnbyen AS går i moteriktige regnklær.</b></li>
+                <p style="font-size: 14px;">Daglige sjekker med sprinkler anleggene.</p>
+                <li><b>Drive Regnbyen AS sin ekslusive merch butikk.</b></li>
+                <p style="font-size: 14px;">Regner en god del penger inn her.</p>
+               
+            </ul>
+            
+            <h2><i><u>Det finnes ikke dårlig vær, bare dårlige klær</i></u></h2>
+            
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>Informasjon</h3>
+                <p>Regnbyen Bergen A/S har siden 2025 vært din pålitelige partner for all informasjon om vedlikehold og bolighold i Bergen. Vi hjelper deg med å holde hjemmet ditt i perfekt stand.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Kontakt</h3>
+                <p>Har du spørsmål eller forslag? Kontakt oss gjerne! Din tilbakemelding hjelper oss med å forbedre tjenestene våre.<br><br>
+                E-post: kontakt@hvl.bergen.no<br>
+                Telefon: +47 55 58 70 00<br>
+                Adresse:<br>
+                Inndalsveien 28<br>
+                5063 Bergen.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Om oss</h3>
+                <p>Regnbyen Bergen A/S er et lokalt selskap etablert i 2025 som brenner for å hjelpe bergensere med å ta vare på hjemmene sine. Vårt mål er å gjøre vedlikehold enkelt og tilgjengelig for alle.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const rainContainer = document.querySelector('.rain');
+
+        function createRaindrop() {
+            const drop = document.createElement('span');
+            drop.style.width = Math.random() * 3 + 'px';
+            drop.style.height = Math.random() * 10 + 20 + 'px';
+            drop.style.left = Math.random() * 100 + 'vw';
+            drop.style.animationDuration = Math.random() * 2 + 3 + 's';
+            drop.style.animationDelay = Math.random() * 5 + 's';
+            drop.style.opacity = Math.random() * 0.4 + 0.2;
+            drop.style.background = '#a0d4ef'; 
+
+            rainContainer.appendChild(drop);
+
+            setTimeout(() => {
+                drop.remove();
+            }, (Math.random() * 2 + 3) * 1000); 
+        }
+
+        for (let i = 0; i < 50; i++) {
+            createRaindrop();
+        }
+
+        setInterval(createRaindrop, 100); 
+    </script>
+
 </body>
 </html>
