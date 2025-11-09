@@ -30,11 +30,12 @@
                             <div class="hover-trigger">Prosjekter</div>
                             <div class="hover-list">
                                 <button onclick="location.href='BRH-3.html'">Vedlikehold</button>
+                                <button onclick="location.href='BRH-4.html'">Energi</button>
                                 <button onclick="location.href='BRH-5.html'">Aktiviteter</button>
-                                <button onclick="location.href='BRH-6.html'">Statestikk</button>
+                                <button onclick="location.href='BRH-6.html'">Statistikk</button>
                             </div>
                         </div>
-                        <a href="om oss.html"><button>Om oss</button></a>
+                        <a href="BRH-2.html"><button>Om oss</button></a>
                     </div>
                 </ul>
             </nav>
@@ -42,69 +43,59 @@
     </header>
 
     <main class="container main-content">
-        
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <h1>Aktiviteter for enhver regnværsdag</h1>
-                    <p>La ikke regnet stoppe deg! Bergen har et fantastisk utvalg av innendørs- og utendørsaktiviteter som passer perfekt for dager med litt ekstra fuktighet. Nøkkelen er riktig forberedelse.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-6">
-                <div class="card card-full-height">
-                    <h2>Innendørs Moro</h2>
-                    <p>Når regnet pisker som verst, er det ingenting som slår en god innendørsaktivitet. Besøk et av byens mange museer, som Kode, eller nyt en forestilling i Grieghallen. Bowling, escape rooms og koselige kafeer er også sikre vinnere.</p>
-                    <div class="activity-options">
-                        <div class="activity-box">
-                            <i class="fas fa-museum"></i>
-                            <p>Kode Kunstmuseer</p>
-                        </div>
-                        <div class="activity-box">
-                            <i class="fas fa-mug-hot"></i>
-                            <p>Kafé-kos</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="card card-full-height">
-                    <h2>Utendørs i Regn</h2>
-                    <p>Regnvær kan gi en unik stemning til naturen. Med riktig utstyr er en tur på Fløyen eller Ulriken en flott opplevelse. Vannet renser luften og lyden av regn i trærne er meditativ. Husk gode regnklær!</p>
-                    <div class="activity-options">
-                        <div class="activity-box">
-                            <i class="fas fa-hiking"></i>
-                            <p>Fjelltur med Regntøy</p>
-                        </div>
-                        <div class="activity-box">
-                            <i class="fas fa-water"></i>
-                            <p>Akvariet i Bergen</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <h2>Kultur og Historie</h2>
-                    <p>Ta en tur til Bryggen og lær om Bergens handels- og sjøfartshistorie, eller besøk Håkonshallen. Disse historiske stedene er like fascinerende uansett vær. Et besøk på Fisketorget under tak er også en opplevelse.</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-12">
-                <div class="card" style="background-color: #e6f7ff; border: 1px solid #b3e0ff;">
-                    <h2>Annonse: Utforsk Bergen</h2>
-                    <p>Få inspirasjon til din neste utflukt! Meld deg på vårt nyhetsbrev for ukentlige tips om innendørsaktiviteter, fjellturer og lokale arrangementer i Bergen.</p>
+                    <h2>Aktiviteter som trosser regnet</h2>
+                    <p>Bergen har et rikt tilbud av aktiviteter og steder du kan besøke, enten regnet pisker ned eller solen titter frem. Vi har samlet noen forslag til deg.</p>
                     
-                    <a href="https://www.visitbergen.com/" class="activity-box read-more-link" style="background-color: #007bff; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; text-align: center; margin-top: 15px; display: inline-block;" target="_blank">
-                        Planlegg din perfekte dag her!
-                    </a>
+                    <div class="interactive-activities">
+                        <div class="activity-accordion">
+                            
+                            <section class="activity-group" data-activity="indoors">
+                                <header class="activity-header">
+                                    <h2>Innendørs kos</h2>
+                                </header>
+                                <div class="activity-details">
+                                    <figure class="activity-image">
+                                        <img src="Bilder/innendors_kos.jpg" alt="Bilde av et museum eller koselig innendørsmiljø">
+                                        <figcaption>Kode Museum</figcaption>
+                                    </figure>
+                                    <p class="detail-description">Bergen har mange flotte museer, som Kode kunstmuseer og komponisthjem, Akvariet i Bergen eller VilVite vitensenter. Perfekt når regnet er på sitt verste.</p>
+                                    <p class="detail-tip"><strong>Ekstra tips:</strong> Sjekk ut hvilke dager museene har gratis inngang!</p>
+                                </div>
+                            </section>
+
+                            <section class="activity-group" data-activity="outdoors">
+                                <header class="activity-header">
+                                    <h2>Utenfor kos</h2>
+                                </header>
+                                <div class="activity-details">
+                                    <figure class="activity-image">
+                                        <img src="Bilder/utenfors_fjellfigur.jpg" alt="Bilde av en figur på et fjell i Bergen">
+                                        <figcaption>Tur til fjellet</figcaption>
+                                    </figure>
+                                    <p class="detail-description">Ta på deg regntøyet og oppdag Bergens fantastiske natur. En tur til Fløyen, Ulriken, eller en av de andre byfjellene gir fantastisk utsikt og frisk luft.</p>
+                                    <p class="detail-tip"><strong>Ekstra tips:</strong> Et par gode gummistøvler er et must!</p>
+                                </div>
+                            </section>
+                            
+                            <section class="activity-group" data-activity="culture">
+                                <header class="activity-header">
+                                    <h2>Kultur og mat</h2>
+                                </header>
+                                <div class="activity-details">
+                                    <figure class="activity-image">
+                                        <img src="Bilder/kultur_og_mat.jpg" alt="Bilde av Bryggen og koselig kafé">
+                                        <figcaption>Utforsk Bryggen og kos deg på kafé</figcaption>
+                                    </figure>
+                                    <p class="detail-description">Utforsk Bryggen, et UNESCO verdensarvsted, eller spis deg gjennom de mange koselige kaféene og restaurantene Bergen har å by på. Prøv en tradisjonell Bergens-rett!</p>
+                                    <p class="detail-tip"><strong>Ekstra tips:</strong> Fisketorget er alltid et livlig sted, selv i regnvær.</p>
+                                </div>
+                            </section>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -113,8 +104,8 @@
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-col">
-                <h3>Vårt oppdrag</h3>
-                <p>Regnbyen Bergen A/S sitt oppdrag er å gi bergensere og besøkende inspirasjon og informasjon. Vi hjelper deg med å finne de beste mulighetene byen har å by på, i all slags vær.</p>
+                <h3>Om oss</h3>
+                <p>Regnbyen Bergen A/S er dedikert til vedlikehold og bolighold i Bergen. Vi hjelper deg med å holde hjemmet ditt i perfekt stand.</p>
             </div>
             <div class="footer-col">
                 <h3>Kontakt</h3>
@@ -126,7 +117,7 @@ Inndalsveien 28<br>
 5063 Bergen.</p>
             </div>
             <div class="footer-col">
-                <h3>Om oss</h3>
+                <h3>Vårt mål</h3>
                 <p>Regnbyen Bergen A/S er et lokalt selskap etablert i 2025 som brenner for å vise frem alt det fantastiske Bergen har å tilby. Vårt mål er å inspirere bergensere og besøkende til å leve aktivt og oppleve byen fullt ut.</p>
             </div>
         </div>
@@ -149,14 +140,36 @@ Inndalsveien 28<br>
 
             setTimeout(() => {
                 drop.remove();
-            }, (Math.random() * 2 + 3) * 1000); 
-        }
-
-        for (let i = 0; i < 50; i++) {
-            createRaindrop();
+            }, (Math.random() * 2 + 3) * 1000);
         }
 
         setInterval(createRaindrop, 100); 
+
+        const activityGroups = document.querySelectorAll('.activity-group');
+
+        activityGroups.forEach(group => {
+            const header = group.querySelector('.activity-header');
+            const detailsBox = group.querySelector('.activity-details');
+
+            header.addEventListener('click', () => {
+                const isActive = group.classList.contains('active');
+
+                activityGroups.forEach(otherGroup => {
+                    if (otherGroup !== group) {
+                        otherGroup.classList.remove('active');
+                        otherGroup.querySelector('.activity-details').classList.remove('show');
+                    }
+                });
+
+                if (isActive) {
+                    group.classList.remove('active');
+                    detailsBox.classList.remove('show');
+                } else {
+                    group.classList.add('active');
+                    detailsBox.classList.add('show');
+                }
+            });
+        });
     </script>
 
 </body>
