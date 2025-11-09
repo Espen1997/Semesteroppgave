@@ -52,22 +52,17 @@
         </div>
 
         <div class="row">
-            <div class="col-6">
+            <div class="col-12">
                 <div class="card">
-                    <h2>Gjennomsnittlig nedbør pr. måned</h2>
-                    <figure class="chart-placeholder">
-                        <i class="fas fa-chart-bar" style="font-size: 5em; color: #007bff;"></i>
-                        <p>Plassholder for nedbørstatistikk (Millimeter)</p>
-                    </figure>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="card">
-                    <h2>Temperatur og soltimer</h2>
-                    <figure class="chart-placeholder">
-                        <i class="fas fa-sun" style="font-size: 5em; color: #ffc107;"></i>
-                        <p>Plassholder for temperatur og soltimer</p>
-                    </figure>
+                    <h2>Gjennomsnittlig nedbør fra Kronstad, Bergen</h2> 
+                    
+                    <div style="text-align: center; padding: 10px;">
+                        <img src="Bilder/python nettbor.png" 
+                             alt="Gjennomsnittlig nedbør pr. måned fra Kronstad, Bergen" 
+                             style="width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px;">
+                        
+                        <p style="font-size: 1em; color: #333; font-weight: 600;">Dette er gjennomsnittlig nedbør fra Kronstad, Bergen.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -147,7 +142,6 @@ Inndalsveien 28<br>
     <script>
         const rainContainer = document.querySelector('.rain');
         
-        // Data for aktivitetsguidene
         const activityData = {
             winter: {
                 description: 'Mørketid og mye nedbør. Perfekt for innendørs kultur og koselige aktiviteter.',
@@ -167,7 +161,6 @@ Inndalsveien 28<br>
             }
         };
 
-        // JavaScript for regndråper
         function createRaindrop() {
             const drop = document.createElement('span');
             drop.style.width = Math.random() * 3 + 'px';
@@ -192,7 +185,6 @@ Inndalsveien 28<br>
         setInterval(createRaindrop, 100); 
 
 
-        // JavaScript for Accordion-funksjonalitet
         const activityGroups = document.querySelectorAll('.activity-group');
 
         activityGroups.forEach(group => {
@@ -203,7 +195,6 @@ Inndalsveien 28<br>
             const activityKey = group.getAttribute('data-activity');
             const data = activityData[activityKey];
             
-            // Populate content initially (since we no longer have a single detail box)
             if (data) {
                 descriptionElement.textContent = data.description;
                 tipElement.innerHTML = `<strong>Ekstra tips:</strong> ${data.tip}`;
@@ -212,7 +203,6 @@ Inndalsveien 28<br>
             header.addEventListener('click', () => {
                 const isActive = group.classList.contains('active');
 
-                // 1. Close all other groups (Accordion behavior)
                 activityGroups.forEach(otherGroup => {
                     if (otherGroup !== group) {
                         otherGroup.classList.remove('active');
@@ -220,7 +210,6 @@ Inndalsveien 28<br>
                     }
                 });
 
-                // 2. Toggle the clicked group
                 if (isActive) {
                     group.classList.remove('active');
                     detailsBox.classList.remove('show');
