@@ -155,17 +155,17 @@ body {
 .hover-list {
     display: none;
     position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: rgba(51, 77, 92, 0.95);
+    background-color: #fff;
+    min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
     z-index: 10;
-    border-radius: 0 0 5px 5px;
-    overflow: hidden;
-    margin-top: 0;
-    flex-direction: row;
-    list-style: none;
-    padding: 0;
+    left: -200px;
+}
+
+.hover-container:hover .hover-list {
+    display: flex;
+    flex-direction: column;
 }
 
 .hover-list button {
