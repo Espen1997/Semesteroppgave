@@ -131,6 +131,7 @@ body {
     position: relative;
     display: inline-block;
     height: 100%;
+    z-index: 1000;
 }
 
 .hover-trigger {
