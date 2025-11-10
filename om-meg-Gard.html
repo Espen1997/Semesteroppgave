@@ -1,195 +1,251 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Om Meg – Gard</title>
     <style>
+        /* -------------------------
+           Global Styles & Animation
+        -------------------------- */
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f8f9fa;
-            color: #2c3e50;
+          font-family: "Poppins", Arial, sans-serif;
+          margin: 0;
+          color: #fff;
+          background: linear-gradient(-45deg, #1e3c72, #2a5298, #6dd5ed, #2193b0);
+          background-size: 400% 400%;
+          animation: gradientBG 12s ease infinite;
+          overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
         }
 
         header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
+          text-align: center;
+          padding: 40px 0 20px;
+          color: #fff;
+          backdrop-filter: blur(6px);
         }
 
         nav {
-            background-color: #34495e;
-            text-align: center;
-            padding: 10px 0;
+          background-color: rgba(0, 0, 0, 0.3);
+          text-align: center;
+          padding: 10px 0;
+          position: sticky;
+          top: 0;
+          z-index: 10;
         }
 
         nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
+          color: white;
+          text-decoration: none;
+          margin: 0 15px;
+          font-weight: bold;
+          transition: color 0.3s;
         }
 
         nav a:hover {
-            text-decoration: underline;
+          color: #a2d9ff;
         }
 
         main {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+          max-width: 900px;
+          margin: 40px auto;
+          background-color: rgba(255, 255, 255, 0.15);
+          border-radius: 20px;
+          padding: 30px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+          backdrop-filter: blur(10px);
+          animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
         }
 
         h1, h2 {
-            color: #2c3e50;
+          color: #fff;
+          text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         img {
-            max-width: 250px;
-            border-radius: 10px;
-            margin: 10px 0;
-        }
-
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin-top: 15px;
-        }
-
-        table, th, td {
-            border: 1px solid #2c3e50;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: left;
+          max-width: 250px;
+          border-radius: 15px;
+          margin: 15px auto;
+          display: block;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
         section {
-            margin-bottom: 40px;
+          margin-bottom: 50px;
         }
 
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 15px 0;
-            margin-top: 40px;
+        /* -------------------------
+           Animated Fact List
+        -------------------------- */
+        .fact-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
         }
 
+        .fact-item {
+          background: rgba(255, 255, 255, 0.1);
+          margin: 12px 0;
+          padding: 15px 20px;
+          border-radius: 12px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          backdrop-filter: blur(6px);
+          transform: translateY(20px);
+          opacity: 0;
+          animation: slideUp 0.8s ease forwards;
+        }
+
+        .fact-item:nth-child(1) { animation-delay: 0.1s; }
+        .fact-item:nth-child(2) { animation-delay: 0.3s; }
+        .fact-item:nth-child(3) { animation-delay: 0.5s; }
+        .fact-item:nth-child(4) { animation-delay: 0.7s; }
+
+        @keyframes slideUp {
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+
+        .fact-label {
+          font-weight: bold;
+          font-size: 1.1em;
+        }
+
+        .fact-value {
+          color: #d1ecff;
+          font-size: 1.05em;
+          transition: transform 0.3s;
+        }
+
+        .fact-item:hover .fact-value {
+          transform: scale(1.1);
+        }
+
+        /* -------------------------
+           Contact & Buttons
+        -------------------------- */
         form {
-            display: flex;
-            flex-direction: column;
-            max-width: 400px;
+          display: flex;
+          flex-direction: column;
+          max-width: 400px;
         }
 
         input, textarea {
-            margin-bottom: 10px;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+          margin-bottom: 10px;
+          padding: 10px;
+          border: none;
+          border-radius: 8px;
+          outline: none;
+          font-size: 1em;
         }
 
         button {
-            background-color: #2c3e50;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
+          background-color: #1e3c72;
+          color: white;
+          border: none;
+          padding: 10px;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: background-color 0.3s;
         }
 
         button:hover {
-            background-color: #34495e;
+          background-color: #2a5298;
         }
 
         a.button-link {
-            display: inline-block;
-            margin-top: 20px;
-            text-decoration: none;
-            color: white;
-            background-color: #2c3e50;
-            padding: 10px 15px;
-            border-radius: 5px;
+          display: inline-block;
+          margin-top: 20px;
+          text-decoration: none;
+          color: white;
+          background-color: #1e3c72;
+          padding: 10px 15px;
+          border-radius: 8px;
+          transition: background 0.3s;
         }
 
         a.button-link:hover {
-            background-color: #34495e;
+          background-color: #2a5298;
+        }
+
+        footer {
+          text-align: center;
+          padding: 20px;
+          color: #fff;
+          background: rgba(0, 0, 0, 0.4);
+          backdrop-filter: blur(4px);
+          margin-top: 60px;
         }
 
         @media (max-width: 600px) {
-            main {
-                margin: 10px;
-            }
-            img {
-                max-width: 100%;
-            }
+          main {
+            margin: 10px;
+            padding: 20px;
+          }
+
+          .fact-item {
+            flex-direction: column;
+            text-align: center;
+          }
         }
     </style>
 </head>
 <body>
-
 <header>
     <h1>Om Meg</h1>
     <p>Hei! Jeg heter Gard 👋</p>
 </header>
 
 <nav>
-    <a href="#introduksjon">Introduksjon</a>
-    <a href="#interesser">Interesser</a>
-    <a href="#fakta">Fakta</a>
-    <a href="#kontakt">Kontakt</a>
+    <a href="bergenregn-index.html" class="button-link">Hovedsiden</a>
+    <a href="#introduksjon" class="button-link">Introduksjon</a>
+    <a href="#fakta" class="button-link">Fakta</a>
+    <a href="#kontakt" class="button-link">Kontakt</a>
 </nav>
 
 <main>
     <section id="introduksjon">
         <h2>Introduksjon</h2>
-        <img src="Bilder/gard.jpg" alt="Bilde av Gard" style="display: block; margin: 0 auto;">
-
-        <p>Hei! Jeg heter Gard, og dette er en side om meg. Her kan du lese litt om meg, mine interesser og andre ting jeg liker. Jeg bor i Son og liker å utforske nye steder, lære nye ting og møte interessante mennesker.</p>
+        <img src="Bilder/gard.jpg" alt="Bilde av Gard" />
+        <p>
+            Hei! Jeg heter Gard, er 22 år og er opprinnelig fra et lite sted kalt Son. På fritiden liker jeg å spille piano, noe jeg har gjort siden jeg var 6 år.
+            Da jeg var 11 år gammel startet jeg på Talentutvikling ved Musikkhøyskolen i Oslo og var samtidig elev ved Barrat Due.
+            Jeg har alltid hatt en stor interesse for teknologi, spesielt det å bygge PC. Den første PC-en bygde jeg da jeg var 13 og siden har det alltid vært en stor interesse.
+            I Regnbyen Bergen A/S har jeg ansvar for hus. Gjerne send meg spørsmål angående dette i kontaktskjemaet på bunnen av siden! Gleder meg til å høre fra deg!
+        </p>
     </section>
 
-    <section id="interesser">
-        <h2>Interesser</h2>
-        <p>Jeg liker blant annet musikk, sport, reiser og teknologi. På fritiden spiller jeg gitar, følger med på fotball, og bygger små teknologiprosjekter.</p>
-    </section>
+
 
     <section id="fakta">
         <h2>Fakta om meg</h2>
-        <table>
-            <tr>
-                <th>Felt</th>
-                <th>Informasjon</th>
-            </tr>
-            <tr>
-                <td>Navn</td>
-                <td>Gard</td>
-            </tr>
-            <tr>
-                <td>Alder</td>
-                <td>22 år</td>
-            </tr>
-            <tr>
-                <td>By</td>
-                <td>Son</td>
-            </tr>
-            <tr>
-                <td>Favorittfarge</td>
-                <td>Blå</td>
-            </tr>
-        </table>
+        <ul class="fact-list">
+            <li class="fact-item"><span class="fact-label">Navn:</span><span class="fact-value">Gard</span></li>
+            <li class="fact-item"><span class="fact-label">Alder:</span><span class="fact-value">22 år</span></li>
+            <li class="fact-item"><span class="fact-label">By:</span><span class="fact-value">Son</span></li>
+            <li class="fact-item"><span class="fact-label">Favorittfarge:</span><span class="fact-value">Blå</span></li>
+        </ul>
     </section>
 
     <section id="kontakt">
-        <h2>Kontakt meg</h2>
+        <h2>Kontakt meg ved eventuelle spørsmål!</h2>
         <form action="#" method="post">
             <label for="navn">Navn:</label>
-            <input type="text" id="navn" name="navn" required>
+            <input type="text" id="navn" name="navn" required />
 
             <label for="melding">Melding:</label>
             <textarea id="melding" name="melding" rows="4" required></textarea>
@@ -198,12 +254,30 @@
         </form>
     </section>
 
-    <a href="bergenregn.html" class="button-link">Tilbake til hovedsiden</a>
+    <a href="bergenregn-index.html" class="button-link">Tilbake til hovedsiden</a>
 </main>
 
-<footer>
-    <p>© 2025 Gard – Laget med HTML og CSS</p>
-</footer>
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>Informasjon</h3>
+                <p>Regnbyen Bergen A/S har siden 2025 vært din pålitelige partner for all informasjon om vedlikehold og bolighold i Bergen. Vi hjelper deg med å holde hjemmet ditt i perfekt stand.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Kontakt</h3>
+                <p>Har du spørsmål eller forslag? Kontakt oss gjerne! Din tilbakemelding hjelper oss med å forbedre tjenestene våre.<br><br>
+                    E-post: kontakt@hvl.bergen.no<br>
+                    Telefon: +47 55 58 70 00<br>
+                    Adresse:<br>
+                    Inndalsveien 28<br>
+                    5063 Bergen.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Om oss</h3>
+                <p>Regnbyen Bergen A/S er et lokalt selskap etablert i 2025 som brenner for å hjelpe bergensere med å ta vare på hjemmene sine. Vårt mål er å gjøre vedlikehold enkelt og tilgjengelig for alle.</p>
+            </div>
+        </div>
 
+</footer>
 </body>
 </html>
