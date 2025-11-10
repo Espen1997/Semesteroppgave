@@ -163,7 +163,7 @@ body {
     border-radius: 0 0 5px 5px;
     overflow: hidden;
     margin-top: 0;
-    flex-direction: row;
+    flex-direction: column;
     list-style: none;
     padding: 0;
 }
