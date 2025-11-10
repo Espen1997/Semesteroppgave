@@ -156,10 +156,10 @@ body {
     display: none;
     position: absolute;
     top: 100%;
-    left: -200px;
+    left: 0;
     background-color: rgba(51, 77, 92, 0.95);
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 10;
+    z-index: 20;
     border-radius: 0 0 5px 5px;
     overflow: hidden;
     margin-top: 0;
